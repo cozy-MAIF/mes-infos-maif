@@ -53,6 +53,7 @@ var appLabels = [
     "lieuSurvenance" : "Lieu de survenance : ",
     "libelleTypeLieuSurvenance" : "Type de lieu de survenance : ",
     "driver" : "Conducteur : ",
+    "everyday_service":"Services au Quotidien",
 
     "place": "lieu",
     "places": "lieux",
@@ -61,6 +62,8 @@ var appLabels = [
     "boats": "bateaux",
 
     "praxis_label": "Protection des accidents corporels de la vie quotidienne",
+    "praxis_solutions_label": "Protection des accidents de la vie courante",
+    "protection_juridique_label": "Couverture des principaux litiges de la vie quotidienne",
 
     "contract": "contrat",
     "contracts": "contrats",
@@ -68,6 +71,8 @@ var appLabels = [
     "pacs_insurance": "ASSURANCE PACS",
     "raqvam_insurance": "ASSURANCE HABITATION RAQVAM",
     "praxis_insurance": "ASSURANCE CORPORELLE PRAXIS",
+    "praxis_solutions_insurance": "ASSURANCE CORPORELLE PRAXIS SOLUTIONS",
+    "protection_juridique": "ASSURANCE PROTECTION JURIDIQUE",
     "vehicle": "véhicule",
     "vehicles": "véhicules",
     "price": "Cotisation",

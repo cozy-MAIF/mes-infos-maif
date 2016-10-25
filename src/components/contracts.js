@@ -18,6 +18,8 @@ const Contracts = React.createClass({
 		var pacs = new Array();
 		var raqvam = new Array();
 		var praxis = new Array();
+		var praxis_solutions = new Array();
+		var ome = new Array();
 
 		//sort different contracts into arrays
 		Object.keys(data).map(function(c) {
@@ -31,8 +33,17 @@ const Contracts = React.createClass({
 				case "RAQVAM":
 					raqvam.push(data[c]);
 				break;
+				case "NOR":
+					raqvam.push(data[c]);
+				break;
 				case "PRAXIS":
 					praxis.push(data[c]);
+				break;
+				case "PRAXIS Solutions":
+					praxis_solutions.push(data[c]);
+				break;
+				case "OME":
+					ome.push(data[c]);
 				break;
 				default:
 					// vam.push(data[c]);
@@ -44,7 +55,7 @@ const Contracts = React.createClass({
 			<span>
 					{this.generateAutoMoto(vam, pacs)}
 					{this.generateHabitation(raqvam)}
-					{this.generateSante(praxis)}
+					{this.generateSante(praxis, praxis_solutions)}
 			</span>);
 	},
 
@@ -448,9 +459,8 @@ const Contracts = React.createClass({
 	/*
 	*generate santé part
 	*/
-	generateSante: function(praxis){
-		if(praxis.length != 0){
-
+	generateSante: function(praxis, praxis_solutions){
+		if(praxis.length != 0 || praxis_solutions.length != 0){
 			var data = this.props.data;
 			var labels = this.props.labels;
 
@@ -458,51 +468,92 @@ const Contracts = React.createClass({
 			var praxisContent = "";
 			var praxisPrice = "";
 
-			var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
+			var praxisSPendant = "";
+			var praxisSContent = "";
+			var praxisSPrice = "";
+			if(praxis.length != 0){
 
-			praxisPendant = <div className="row">
-								<div className="colomns large-12">
-									<div className="box-h2">
-										{labels["praxis_insurance"]}
+				var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
+
+				praxisPendant = <div className="row">
+									<div className="colomns large-12">
+										<div className="box-h2">
+											{labels["praxis_insurance"]}
+										</div>
 									</div>
-								</div>
-							</div>;
+								</div>;
 
-			praxisContent = <div className="row">
-		                        <div className="large-12 columns margin-bottom-10">
-		                            <div className="box-h3 colorize">
-		                                {labels["praxis_label"]}
+				praxisContent = <div className="row">
+			                        <div className="large-12 columns margin-bottom-10">
+			                            <div className="box-h3 colorize">
+			                                {labels["praxis_label"]}
+			                            </div>
+			                        </div>
+			                    </div>;
+
+	            praxisPrice =
+	            		<div className="section-margin"> 
+	            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
+	                            <div className="large-6 medium-6 small-6 columns">
+	                                {labels["price"]}
+	                            </div>
+	                            <div className="large-6 medium-6 small-6 columns enhance to-right">
+	                                {price} €
+	                            </div>
+	                        </div>
+	                    </div>;
+
+				}
+				if(praxis_solutions.length != 0){
+					var solutions_price = praxis_solutions[0]["montantTarifTtc"] != undefined ? praxis_solutions[0]["montantTarifTtc"] : "";
+
+					praxisSPendant = <div className="row">
+										<div className="colomns large-12">
+											<div className="box-h2">
+												{labels["praxis_solutions_insurance"]}
+											</div>
+										</div>
+									</div>;
+
+					praxisSContent = <div className="row">
+				                        <div className="large-12 columns margin-bottom-10">
+				                            <div className="box-h3 colorize">
+				                                {labels["praxis_solutions_label"]}
+				                            </div>
+				                        </div>
+				                    </div>;
+
+		            praxisSPrice =
+		            		<div className="section-margin"> 
+		            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
+		                            <div className="large-6 medium-6 small-6 columns">
+		                                {labels["price"]}
+		                            </div>
+		                            <div className="large-6 medium-6 small-6 columns enhance to-right">
+		                                {price} €
 		                            </div>
 		                        </div>
 		                    </div>;
+				}
+				var sante = <div id="ancreContratSante" className="box-alpha unfold short">
+								<div className="box-container violet">
+									<div className="box-h1">
+						                {labels["health"]}
+						                <div className="inline-right">
+						                    {(praxis.length + praxis_solutions.length)} {(praxis.length + praxis_solutions.length) > 1 ? labels["contracts"] : labels["contract"]}
+						                </div>
+						            </div>
+						            <div className="accordion-content" style={{display: 'none'}}>
+						            	{praxisPendant}
+						            	{praxisContent}
+						            	{praxisPrice}
 
-            praxisPrice =
-            		<div className="section-margin"> 
-            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
-                            <div className="large-6 medium-6 small-6 columns">
-                                {labels["price"]}
-                            </div>
-                            <div className="large-6 medium-6 small-6 columns enhance to-right">
-                                {price} €
-                            </div>
-                        </div>
-                    </div>;
-
-			var sante = <div id="ancreContratSante" className="box-alpha unfold short">
-							<div className="box-container violet">
-								<div className="box-h1">
-					                {labels["health"]}
-					                <div className="inline-right">
-					                    {praxis.length} {praxis.length > 1 ? labels["contracts"] : labels["contract"]}
-					                </div>
-					            </div>
-					            <div className="accordion-content" style={{display: 'none'}}>
-					            	{praxisPendant}
-					            	{praxisContent}
-					            	{praxisPrice}
-					            </div>
-							</div>
-						</div>;
+						            	{praxisSPendant}
+						            	{praxisSContent}
+						            	{praxisSPrice}
+						            </div>
+								</div>
+							</div>;
 		}
 		else{
 			var sante = "";
