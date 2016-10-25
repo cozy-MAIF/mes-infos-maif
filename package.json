@@ -5,6 +5,7 @@
   "description": "Vos infos MAIF",
   "icon-path": "logo_maif.png",
   "main": "src/app.js",
+  "cozy-type": "static",
   "cozy-permissions": {
     "MaifUser": {
       "description": "Pour enregistrer et récupérer vos données."
