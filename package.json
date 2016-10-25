@@ -1,0 +1,21 @@
+{
+  "name": "mes-infos-maif",
+  "cozy-displayName": "Mes Infos MAIF",
+  "version": "1.0.0",
+  "description": "Vos infos MAIF",
+  "icon-path": "logo_maif.png",
+  "main": "src/app.js",
+  "cozy-permissions": {
+    "MaifUser": {
+      "description": "Pour enregistrer et récupérer vos données."
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bundle": "webpack -p --colors --progress",
+    "lint": "eslint src",
+    "start": "webpack-dev-server -d --colors --inline",
+    "build": "npm run bundle"
+  },
+  "author": "Digital Factory"
+}

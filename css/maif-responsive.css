@@ -1,0 +1,929 @@
+@charset "UTF-8";
+@font-face { font-family: 'metanormal_roman'; src: url("meta-normal-roman-webfont.eot"); src: url("meta-normal-roman-webfont.eot?#iefix") format("embedded-opentype"), url("meta-normal-roman-webfont.woff") format("woff"), url("meta-normal-roman-webfont.ttf") format("truetype"), url("meta-normal-roman-webfont.svg#metanormal_roman") format("svg"); font-weight: normal; font-style: normal; }
+
+.box-message { padding: 5px 10px 5px 35px; background: #e5e5e5 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-info.png") no-repeat 0 5px; color: #666666; font-size: 12px; line-height: 18px; }
+.box-message a { text-decoration: underline; }
+.box-message.bottom { margin-bottom: 5px; }
+.box-message.info { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-info.png"); }
+.box-message.auto { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-auto.png"); background-position: 2px 3px !important; }
+.box-message.parrainage { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-parrainage.png"); }
+.box-message.date { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-date.png"); }
+.box-message.pig { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-pig.png"); }
+.box-message.imob { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-info.png"); }
+.box-message.sinistre { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-sinistre.png"); }
+.box-message.souscription { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-validation.png"); }     
+.box-message .inline-title { font-weight: bold; font-size: 14px; }
+.box-message.premium { padding: 10px 10px 10px 35px; border-bottom: solid 1px #333; }
+.box-message.pics { padding-left: 40px; background-position: 6px 3px; }
+.box-message:last-child { margin-bottom: 15px; }
+.box-message input[type='submit'].validate { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-validate-grey.png") no-repeat; }
+.box-message .box-alpha-title-button { margin-left: 10px; }
+
+.box-message-with-pic { padding: 10px 10px 10px 40px; background: #f7f7f7 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-phone.png") no-repeat 0 7px; border-bottom: solid 1px #333; }
+.box-message-with-pic .section-line { margin: 5px 0 5px -35px; }
+.box-message-with-pic .section-line input { float: left; display: block; margin: 0 5px 0 0; padding: 0; width: 13px; height: 15px; }
+.box-message-with-pic .section-line label { float: left; display: block; width: auto; }
+.box-message-with-pic input[type="checkbox"] { margin: 0 10px 5px; }
+.box-message-with-pic.pic-book { background: #f7f7f7 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-book.png") no-repeat -3px 7px; }
+
+.error-message { padding: 10px; background-color: #e5e5e5; }
+
+.error-input { color: red; }
+
+.error-box { color: #e11e19; border: 1px solid #eea7a7; background-color: #f4c9c9; padding: 5px 10px; display: block; margin: 0 0 15px !important; overflow: hidden; clear: both; font-weight: bold; }
+
+.errors { color: #e11e19; border: 1px solid #eea7a7; background-color: #f4c9c9; padding: 5px 10px; display: block; margin: 13px 16px 15px !important; overflow: hidden; clear: both; font-weight: bold; }
+
+.section-line { margin: 5px 0 5px -35px; }
+.section-line input { float: left; display: block; margin: 0 5px 0 0; padding: 0; width: 13px; height: 15px; }
+.section-line label { float: left; display: block; width: auto; }
+
+.checkbox-container { padding: 10px 10px 10px 40px; }
+
+.box-advertise-left { text-decoration: none; display: inline-block; background-color: #F7F7F7; border-bottom: solid 1px #FFF; padding: 7px; width: 100%; }
+.box-advertise-left img { display:inline-block; float: left; margin-right: 7px; }
+.box-advertise-left .date { font-size: 13px; }
+.box-advertise-left .text { padding: 2px 0px 0 5px; font-size: 13px; color: #888; }
+.box-advertise-left.dark { background-color: #E5E5E5; border-bottom: solid 1px #333; margin-bottom: 15px; }
+.box-advertise-left.beta { background-color: #E5E5E5; }
+.box-advertise-left.beta .title { display:inline-block; vertical-align: top; font-size: 18px; margin: 4px 0; color: #555; }
+.box-advertise-left.beta .date { font-size: 15px; color: #555; }
+.box-advertise-left.beta .text { padding: 2px 0px 0 5px; font-size: 13px; color: #888; }
+
+.cursorDefault {cursor: default;}
+.show-for-small .box-advertise-left .text { font-size: 14px !important; }
+
+.box-advertise-bottom { text-decoration: none; display: inline-block; background-color: #E5E5E5; border-right: solid 1px #FFF; border-bottom: solid 1px #FFF; padding: 7px; margin-bottom: 10px; width: 100%; color: #777; height: 163px; }
+.box-advertise-bottom img { float: left; margin-right: 7px; }
+.box-advertise-bottom .date { font-size: 13px; margin-bottom: 3px; }
+.box-advertise-bottom .title { font-size: 15px; margin-bottom: 3px; }
+.box-advertise-bottom .text { font-size: 14px; }
+
+.paginator { text-align: center; border-top: solid 1px #D1D1D1; border-bottom: solid 1px #D1D1D1; padding: 5px; margin: 5px 15px 15px; }
+.paginator a { text-decoration: none; margin: 0 3px; }
+
+input[type="checkbox"] { margin: 0 10px 5px; }
+
+input[type="radio"] { margin: 0 5px 5px; }
+
+input[type='submit'] { width: 111px; height: 33px; border: none; }
+input[type='submit'].modify { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-modify.png") no-repeat; }
+input[type='submit'].validate { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-validate.png") no-repeat; }
+input[type='submit'].validate-2 { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-validate-2.png") no-repeat; width: 193px; height: 24px; }
+input[type='submit'].attestation { width: 159px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-attestation.png") no-repeat; }
+
+a.input-type { width: 111px; height: 33px; border: none; display: inline-block; text-decoration: none; }
+a.input-type.modify { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-modify.png") no-repeat; }
+a.input-type.validate { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-validate.png") no-repeat; }
+a.input-type.cancel { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-cancel.png") no-repeat; }
+a.input-type.rdv { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-rdv.gif") no-repeat; background-size: 111px 33px; }
+
+.box-alpha input[type='text'] { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//input-text-bg.png") no-repeat; width: 194px; height: 27px; padding-left: 4px; border: none; margin-bottom: 10px; }
+.box-alpha input[type='text'].bg-grey { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//input-text-bg-grey.png") no-repeat; }
+.box-alpha input[type='text'].small { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//input-text-bg-small.png"); width: 50px; }
+.box-alpha input[type='text'].medium { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//input-text-bg-medium.png"); width: 100px; }
+
+.box-alpha input[type='password'] { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//input-text-bg.png") no-repeat; width: 194px; height: 27px; padding-left: 4px; border: none; margin-bottom: 10px; }
+
+.calendrier .ui-datepicker-trigger { left: -29px; overflow: hidden; position: relative; top: 0; }
+.calendrier .date { position: absolute; margin-left: 200px; margin-top: -30px; color: #787878; font-size: .9em; }
+
+.custom-select { width: 225px; height: 27px; overflow: hidden; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//select-arrow.gif") no-repeat right; }
+.custom-select select { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//select-bg.gif") no-repeat; width: 195px !important; padding: 5px; border: 0; margin: 0 !important; border-radius: 0; height: 34px; -webkit-appearance: none; }
+
+.box-alpha-title { background: #666666 url("../img/box-title.png") no-repeat right 2px; padding: 4px 20px 0px 10px; font-size: 20px; color: #FFF; text-transform: uppercase; float: left; }
+.box-alpha-title.empty { background: none; }
+
+/* .box-alpha-title-button { float: right; position: relative; } */
+.box-alpha-title-button { float: right;}
+.box-alpha-title-button img { cursor: pointer; }
+ .box-alpha-title-button .display-roll { white-space: nowrap; background-color: #e5e5e5; border: solid 1px #666; position: absolute; right: 0; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; margin-top: -2px; }
+.box-alpha-title-button .display-roll.red { border-color: #e80016; }
+.box-alpha-title-button .display-roll a { padding: 5px 10px; text-align: right; border-bottom: solid 1px #CCC; display: block; color: #666; }
+.box-alpha-title-button .display-roll a.last { border: none; }
+.box-alpha-title-button .display-roll a:hover { background-color: #CCC; }
+.box-alpha-title-button:hover .display-roll, .box-alpha-title-button.hover .display-roll { display: block; }
+.box-alpha-title-button.echeance { position: absolute; right: 10px; margin-top: -27px; }
+.box-alpha-title-button.btn-gerer .display-roll { right: 1px; }
+
+.box-alpha { border: solid 1px #333; margin-bottom: 15px; font-size: 12px; color: #333; clear: both; /**
+  * COLORS
+  */ }
+.box-h3 {float : left; position: relative;}
+.box-h3-epargne {width : 100%;}
+.box-h3-epargne .box-alpha-title-button {float : right; position: relative;}
+.box-alpha .box-h1 { font-family: 'metanormal_roman'; cursor: pointer; color: #CCC; font-size: 19px; border-style: solid; border-width: 1px 0 1px 5px; border-color: #CCC; padding: 7px 5px 5px 5px; clear: left; position: relative; /*background: no-repeat 99% 58%;  url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png') */ background-repeat: no-repeat; background-position: -moz-calc(100% - 10px) 50%; background-position: -o-calc(100% - 10px) 50%; background-position: -webkit-calc(100% - 10px) 50%; background-position: calc(100% - 10px) 50%; }
+.box-alpha .box-h1 .inline-right { font-family: "metanormal_roman"; position: absolute; right: 0; top: 50%; margin-top: -11px; font-size: 15px; border-left: solid 1px; padding: 2px 10px; width: 100px; }
+.box-alpha .box-sinistre { font-family: 'metanormal_roman'; cursor: pointer; color: #CCC; font-size: 19px; padding: 7px 5px 5px 5px; clear: left; position: relative; /*background: no-repeat 99% 58%;  url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png') */ background-repeat: no-repeat; background-position: -moz-calc(100% - 10px) 50%; background-position: -o-calc(100% - 10px) 50%; background-position: -webkit-calc(100% - 10px) 50%; background-position: calc(100% - 10px) 50%; }
+.box-alpha .box-foyer { font-family: 'metanormal_roman'; cursor: pointer; color: #CCC; font-size: 19px; padding: 7px 5px 5px 5px; clear: left; position: relative; /*background: no-repeat 99% 58%;  url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png') */ background-repeat: no-repeat; background-position: -moz-calc(100% - 10px) 50%; background-position: -o-calc(100% - 10px) 50%; background-position: -webkit-calc(100% - 10px) 50%; background-position: calc(100% - 10px) 50%; }
+.box-alpha .box-sinistre .inline-right { font-family: "metanormal_roman"; position: absolute; right: 0; top: 50%; margin-top: -11px; font-size: 15px; border-left: solid 1px; padding: 2px 10px; width: 100px; }
+.box-alpha .box-foyer .inline-right { font-family: "metanormal_roman"; position: absolute; right: 0; top: 50%; margin-top: -11px; font-size: 15px; border-left: solid 1px; padding: 2px 10px; width: 100px; }
+.box-alpha .box-h2 { font-family: 'metanormal_roman'; font-weight: medium; font-size: 18px; padding: 10px; clear: left; position: relative; }
+.box-alpha .box-h2 .vecAmount { font-size: 16px; color: #888; font-family: 'metanormal_roman'; font-weight: normal; }
+.box-alpha .box-h3 { font-family: 'Arial'; padding: 0 0 2px 14px; font-size: 14px; background: no-repeat 0 3px; clear: left; }
+.box-alpha .box-h4 { padding: 0 10px 7px 14px; font-size: 14px; font-weight: bold; background: no-repeat 0 3px; color: #666666; clear: left; }
+.box-alpha .box-price { font-size: 23px; margin-top: -9px; }
+.box-alpha .box-price span.month { font-size: 14px; }
+.box-alpha .box-price.alpha { margin-top: 0; }
+.box-alpha .box-price.beta { margin-top: 0; }
+.box-alpha .box-advertise { padding: 10px; }
+.box-alpha .box-advertise .box-advertise-header { font-size: 16px; display: inline-block; padding-right: 10px; padding-bottom: 5px; margin-bottom: 5px; border-bottom: solid 1px #FFF; /* display: inline-block; */ }
+.box-alpha .box-advertise .line.alpha { font-size: 13px; line-height: 20px; }
+.box-alpha .box-advertise img { margin-left: 5px; }
+.box-alpha .box-advertise .link-more { padding: 5px 0 0 15px; background: no-repeat 0 7px; margin-right: 25px; display: inline-block; text-decoration: underline; }
+.box-alpha .check { padding: 10px 10px 10px 35px; color: #666; background: no-repeat 5px 10px; line-height: 18px; }
+.box-alpha .box-advertise-offer { position: relative; background-color: #e5e5e5; border-bottom: solid 1px #333; padding: 15px; margin-bottom: 10px; }
+.box-alpha .box-advertise-offer .top > div { display: inline; }
+.box-alpha .box-advertise-offer .col-left { width: 33%; float: left; }
+.box-alpha .box-advertise-offer .col-left .top { margin-right: 10px; font-family: 'metanormal_roman'; }
+.box-alpha .box-advertise-offer .col-left .top .alpha { font-size: 20px; padding: 5px 10px 0 0; }
+.box-alpha .box-advertise-offer .col-left .top .beta { font-size: 20px; padding: 0px 10px 5px 0; border-bottom: solid 1px #FFF; margin-bottom: 10px; color: #a4c64d; display: inline; }
+.box-alpha .box-advertise-offer .col-left .bottom { /* background-color: #a4c64d; */ color: #FFF; padding: 9px 10px; bottom: 15px; position: absolute; height: 50px; display: block; width: -moz-calc(33% - 10px) ; width: -o-calc(33% - 10px) ; width: -webkit-calc(33% - 10px) ; width: calc(33% - 10px) ; font-family: 'Arial'; }
+.box-alpha .box-advertise-offer .col-left .bottom .alpha { font-size: 13px; }
+.box-alpha .box-advertise-offer .col-left .bottom .beta { font-size: 15px; }
+.box-alpha .box-advertise-offer .col-right { width: 67%; float: left; background: white url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-green.png") no-repeat bottom left; padding: 10px 5px 10px 23px; height: 100%; font-family: 'Arial'; }
+.box-alpha .box-advertise-offer .col-right ul { padding-left: 13px; margin: 0 0 0 -7px; }
+.box-alpha .box-advertise-offer .col-right li { list-style-type: disc; line-height: 17px; font-size: 13px; list-style-position: outside; }
+.box-alpha .box-advertise-offer .col-right li .container { margin-left: -7px; }
+.box-alpha .show-for-small .box-advertise-offer .top > div { display: inline; }
+.box-alpha .row.full-width-box { padding-right: 15px; }
+.box-alpha .row.full-width-box .width-box { padding-left: 15px; }
+.box-alpha .list-header { font-size: 16px; background: no-repeat 0 2px; padding: 3px 0 3px 27px; color: #333; font-family: 'metanormal_roman'; }
+.box-alpha .list-header.docu { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-document.png"); }
+.box-alpha .list-header.attest { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-attestation.png"); }
+.box-alpha .list-header.gestion { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-gestion.png"); }
+.box-alpha .list-content li { padding: 5px 0 5px; margin-left: 15px; list-style-position: outside; }
+.box-alpha .list-content li a { text-decoration: none; }
+.box-alpha .section-margin { margin: 10px 15px; }
+.box-alpha .section-margin-horizontal { margin: 0 15px; }
+.box-alpha .section-padding { padding: 15px; }
+.box-alpha .section-padding-vertical { padding: 10px 0; }
+.box-alpha .section-padding-vertical-light { padding: 5px 0; }
+.box-alpha .row.border-left { border-style: solid; border-width: 0 0 0 5px; border-color: #CCC; padding-top: 10px; }
+.box-alpha .display-infos { background-color: #e5e5e5; padding: 5px 10px; text-align: center; border: solid 1px #d1d1d1; cursor: pointer; }
+.box-alpha .display-infos .text { display: inline; padding: 0 20px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//arrow-grey-more-r.png") no-repeat right; }
+.box-alpha .display-infos.active .text { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//arrow-grey-more.png"); }
+.box-alpha hr { background-color: #CCC; border: 0; height: 5px; margin: 15px 0 0; }
+.box-alpha.short .box-container { margin: 0; }
+.box-alpha.short .box-h1 { border-top: none; border-bottom: none; }
+.box-alpha.short .box-sinistre { border-top: none; border-bottom: none; }
+.box-alpha.short .box-foyer { border-top: none; border-bottom: none; }
+.box-alpha .table-footer { background-color: #e5e5e5; padding: 5px 10px; text-align: center; }
+.box-alpha .map-container { position: absolute; right: 0; bottom: 0; z-index: 10; }
+.box-alpha .ico-span { padding: 10px 0 10px 40px; font-weight: bold; background: no-repeat 0 2px; }
+.box-alpha .ico-span.phone { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-span-phone.png"); padding: 10px 0 10px 35px; }
+.box-alpha .ico-span.fax { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-span-print.png"); }
+.box-alpha .ico-span.script { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-span-script.png"); padding: 10px 0 10px 35px; }
+.box-alpha .onglet-container { border-bottom: solid 1px #CCC; height: 30px; }
+.box-alpha .onglet-container .onglet { float: left; background-color: #d1d1d1; font-size: 16px; padding: 5px; display: inline-block; width: 200px; text-align: center; margin-right: 2px; color: #FFF; }
+.box-alpha .onglet-container .onglet.active { background-color: #166373; }
+.box-alpha.short .box-container.blue .box-h1 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-blue-r.png"); }
+.box-alpha.short .box-container.green .box-h1 { background-image: url("../img/box-alpha-arrow-green-r.png"); }
+.box-alpha.short .box-container.orange .box-h1 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-orange-r.png"); }
+.box-alpha.short .box-container.violet .box-h1 { background-image: url("../img/box-alpha-arrow-violet-r.png"); }
+.box-alpha.short .box-container.pink .box-h1 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-pink-r.png"); }
+.box-alpha.short .box-container.grey .box-h1 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey-r.png"); }
+.box-alpha.short .box-container.pm .box-h1 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-pm-r.png"); }
+.box-alpha.short .box-sinistre { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey-r.png"); }
+.box-alpha.short .box-foyer { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey-r.png"); }
+.box-alpha .box-container { margin-bottom: 10px; }
+.box-alpha .box-container.red .box-h1 { color: #666; border-left-color: #e80016; cursor: default; }
+.box-alpha .box-container.red .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-red.png"); }
+.box-alpha .box-container.red .box-h3.colorize { color: #e80016; }
+.box-alpha .box-container.pm .box-h1 { color: #166471; border-left-color: #166471; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-pm.png"); }
+.box-alpha .box-sinistreac { color: #166471; border-left-color: #166471; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-pm.png"); }
+.box-alpha .box-container.pm .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pm.png"); }
+.box-alpha .box-container.pm .box-h3.colorize { color: #166471; }
+.box-alpha .box-container.pm .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pm.png"); }
+.box-alpha .box-container.pm .border-left { border-left-color: #166471; }
+.box-alpha .box-container.pm hr { background-color: #166471; }
+.box-alpha .box-container.pm .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pm.png"); }
+.box-alpha .box-container.pm .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pm-grey.png"); }
+.box-alpha .box-container.pm .box-advertise-offer .col-left .top .beta { color: #166471; }
+.box-alpha .box-container.pm .box-advertise-offer .col-left .bottom { background-color: #166471; }
+.box-alpha .box-container.pm .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-pm.png"); }
+.box-alpha .box-container.pm .line-bullet { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pm.png"); }
+.box-alpha .box-container.blue .box-h1 { color: #08b9f1; border-left-color: #08b9f1; background-image: url("../img/box-alpha-arrow-blue.png"); }
+.box-alpha .box-container.blue .box-h3 { background-image: url("../img/bullet-blue.png"); }
+.box-alpha .box-container.blue .box-h3.colorize { color: #08b9f1; }
+.box-alpha .box-container.blue .list-content li { list-style-image: url("../img/bullet-blue.png"); }
+.box-alpha .box-container.blue .border-left { border-left-color: #08b9f1; }
+.box-alpha .box-container.blue hr { background-color: #08b9f1; }
+.box-alpha .box-container.blue .link-more { background-image: url("../img/bullet-blue.png"); }
+.box-alpha .box-container.blue .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-blue-grey.png"); }
+.box-alpha .box-container.blue .box-advertise-offer .col-left .top .beta { color: #08b9f1; }
+.box-alpha .box-container.blue .box-advertise-offer .col-left .bottom { background-color: #08b9f1; }
+.box-alpha .box-container.blue .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-blue.png"); }
+.box-alpha .box-container.green .box-h1 { color: #a4c64d; border-left-color: #a4c64d; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-green.png"); }
+.box-alpha .box-container.green .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-green.png"); }
+.box-alpha .box-container.green .box-h3.colorize { color: #a4c64d; }
+.box-alpha .box-container.green .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-green.png"); }
+.box-alpha .box-container.green .border-left { border-left-color: #a4c64d; }
+.box-alpha .box-container.green hr { background-color: #a4c64d; }
+.box-alpha .box-container.green .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-green.png"); }
+.box-alpha .box-container.green .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-green-grey.png"); }
+.box-alpha .box-container.green .box-advertise-offer .col-left .top .beta { color: #a4c64d; }
+.box-alpha .box-container.green .box-advertise-offer .col-left .bottom { background-color: #a4c64d; }
+.box-alpha .box-container.green .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-green.png"); }
+.box-alpha .box-container.orange .box-h1 { color: #f5a300; border-left-color: #f5a300; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-orange.png"); }
+.box-alpha .box-container.orange .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-orange.png"); }
+.box-alpha .box-container.orange .box-h3.colorize { color: #f5a300; }
+.box-alpha .box-container.orange .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-orange.png"); }
+.box-alpha .box-container.orange .border-left { border-left-color: #f5a300; }
+.box-alpha .box-container.orange hr { background-color: #f5a300; }
+.box-alpha .box-container.orange .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-orange.png"); }
+.box-alpha .box-container.orange .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-orange-grey.png"); }
+.box-alpha .box-container.orange .box-advertise-offer .col-left .top .beta { color: #f5a300; }
+.box-alpha .box-container.orange .box-advertise-offer .col-left .bottom { background-color: #f5a300; }
+.box-alpha .box-container.orange .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-orange.png"); }
+.box-alpha .box-container.violet .box-h1 { color: #7e2d8c; border-left-color: #7e2d8c; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-violet.png"); }
+.box-alpha .box-container.violet .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-violet.png"); }
+.box-alpha .box-container.violet .box-h3.colorize { color: #7e2d8c; }
+.box-alpha .box-container.violet .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-violet.png"); }
+.box-alpha .box-container.violet .border-left { border-left-color: #7e2d8c; }
+.box-alpha .box-container.violet hr { background-color: #7e2d8c; }
+.box-alpha .box-container.violet .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-violet.png"); }
+.box-alpha .box-container.violet .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-violet-grey.png"); }
+.box-alpha .box-container.violet .box-advertise-offer .col-left .top .beta { color: #7e2d8c; }
+.box-alpha .box-container.violet .box-advertise-offer .col-left .bottom { background-color: #7e2d8c; }
+.box-alpha .box-container.violet .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-violet.png"); }
+.box-alpha .box-container.pink .box-h1 { color: #d71366; border-left-color: #d71366; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-pink.png"); }
+.box-alpha .box-container.pink .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pink.png"); }
+.box-alpha .box-container.pink .box-h3.colorize { color: #d71366; }
+.box-alpha .box-container.pink .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pink.png"); }
+.box-alpha .box-container.pink .border-left { border-left-color: #d71366; }
+.box-alpha .box-container.pink hr { background-color: #d71366; }
+.box-alpha .box-container.pink .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pink.png"); }
+.box-alpha .box-container.pink .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-pink-grey.png"); }
+.box-alpha .box-container.pink .box-advertise-offer .col-left .top .beta { color: #d71366; }
+.box-alpha .box-container.pink .box-advertise-offer .col-left .bottom { background-color: #d71366; }
+.box-alpha .box-container.pink .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-pink.png"); }
+.box-alpha .box-container.grey .box-h1 { color: #67757e; border-left-color: #67757e; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png"); }
+.box-alpha .box-sinistre { color: #67757e; border-left-color: #67757e; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png"); }
+.box-alpha .box-foyer { color: #67757e; border-left-color: #67757e; background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey.png"); }
+.box-alpha .short .box-sinistre { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey-r.png"); }
+.box-alpha .short .box-foyer { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-alpha-arrow-grey-r.png"); }
+.box-alpha .box-container.grey .box-h3 { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey.png"); }
+.box-alpha .box-container.grey .box-h3.colorize { color: #67757e; }
+.box-alpha .box-container.grey .list-content li { list-style-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey.png"); }
+.box-alpha .box-container.grey .border-left { border-left-color: #67757e; }
+.box-alpha .box-container.grey hr { background-color: #67757e; }
+.box-alpha .box-container.grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey.png"); }
+.box-alpha .box-container.grey .dark-grey .link-more { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey-grey.png"); }
+.box-alpha .box-container.grey .box-advertise-offer .col-left .top .beta { color: #67757e; }
+.box-alpha .box-container.grey .box-advertise-offer .col-left .bottom { background-color: #67757e; }
+.box-alpha .box-container.grey .box-advertise-offer .col-right { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-grey.png"); }
+.box-alpha .check.blue { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-blue.png"); }
+.box-alpha .check.green { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-green.png"); }
+.box-alpha .check.orange { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-orange.png"); }
+.box-alpha .check.violet { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-violet.png"); }
+.box-alpha .check.pink { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-pink.png"); }
+.box-alpha .check.grey { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-grey.png"); }
+.box-alpha .check.pm { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//check-pm.png"); }
+
+/**
+* LAYOUT
+*/
+div, ul, ol, li, p, br, img, table, th, td, fieldset, form, legend, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; border: 0; font-size: 1em; list-style: none; }
+body { margin: 0; padding: 0; font: .69em Arial,Verdana,Helvetica,sans-serif; color: #000; background-color: #FFFFFF; }
+
+a { text-decoration: none; color: #000; }
+
+table { width: 100%; }
+table tbody { width: 100%; }
+table th { text-align: left; padding: 5px 8px; background-color: #f7f7f7; /*width: 2%;*/ border: solid 1px #d1d1d1; }
+table th.th-20 { width: 20%; }
+table td { padding: 5px 3px; border: solid 1px #d1d1d1; }
+table tfoot td { background-color: #e5e5e5; padding: 5px 10px; text-align: center; }
+
+.ctable { font-size: 90%; line-height: 19px; float: left; width: 100%; /* Détails du portefeuille  */ /* Détail versement / prélèvement */ /* Libre Cap : Détail retrait & Détail arbitrage (Désinvestissement) */ /* Libre Cap : Détail retrait & Détail arbitrage (investissement) */ /* Generic size */ }
+.ctable .ctr { clear: left; height: 33px; }
+.ctable .ctr.break { margin-top: 5px; }
+.ctable .cth { float: left; overflow: hidden; text-align: left; padding: 6px 8px; background-color: #f7f7f7; border: solid 1px #d1d1d1; }
+.ctable .ctd { float: left; text-align: left; padding: 6px 8px; border: solid 1px #d1d1d1; }
+.ctable .a-1 { width: 25%; }
+.ctable .a-2 { width: 25%; }
+.ctable .a-3 { width: 50%; }
+.ctable .a-4 { width: 16%; }
+.ctable .a-5 { width: 16%; }
+.ctable .a-6 { width: 16%; }
+.ctable .a-7 { width: 16%; }
+.ctable .a-8 { width: 20%; }
+.ctable .a-9 { width: 16%; }
+.ctable .b-1 { width: 40%; }
+.ctable .b-2 { width: 27%; }
+.ctable .b-3 { width: 33%; }
+.ctable .b-4 { width: 33%; }
+.ctable .b-5 { width: 34%; }
+.ctable .b-6 { width: 33%; }
+.ctable .c-1 { width: 33.33%; }
+.ctable .c-2 { width: 33.33%; }
+.ctable .c-3 { width: 33.33%; }
+.ctable .c-4 { width: 33.33%; }
+.ctable .c-5 { width: 33.33%; }
+.ctable .c-6 { width: 33.33%; }
+.ctable .d-1 { width: 33.33%; }
+.ctable .d-2 { width: 33.33%; }
+.ctable .d-3 { width: 33.33%; }
+.ctable .d-4 { width: 30%; }
+.ctable .d-5 { width: 50%; }
+.ctable .d-6 { width: 25%; }
+.ctable .d-7 { width: 25%; }
+.ctable .e-1 { width: 33.33%; }
+.ctable .e-2 { width: 33.33%; }
+.ctable .e-3 { width: 33.33%; }
+.ctable .e-4 { width: 50%; }
+.ctable .e-5 { width: 50%; }
+.ctable .f-1 { width: 50%; }
+.ctable .f-2 { width: 50%; }
+.ctable .f-3 { width: 50%; }
+.ctable .f-4 { width: 50%; }
+.ctable .g-20 { width: 20%; }
+.ctable .g-25 { width: 25%; }
+.ctable .g-33 { width: 33%; }
+.ctable .g-50 { width: 50%; }
+
+.ctable-title { margin: 7px 0; font-weight: bold; }
+.ctable-title a.display { border: solid 1px #666; padding: 0 3px; float: right; }
+
+#background { position: absolute; width: 100%; padding-right: 13px; }
+
+#content *, #content *:before, #content *:after { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+#main { padding-left: 10px; }
+
+.espacePerso #main { background: white url("../img/bg-espace-perso.gif") repeat-x center -20px; }
+
+.themePM #main { background: white url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bg_pm.png") repeat-x center -20px; }
+
+#leftMenu { -moz-box-sizing: inherit; -webkit-box-sizing: inherit; box-sizing: inherit; float: left; position: relative; width: 203px; top: -61px; padding-right: 27px; padding-bottom: 9px; }
+
+/*
+#navTop{
+	min-width: 0 !important;
+}
+*/
+#content { max-width: 950px !important; width: 100% !important; position: relative; margin: 0 auto; width: 950px; overflow: visible; }
+
+#contentInner { width: -moz-calc(100% - 240px) !important; width: -o-calc(100% - 240px) !important; width: -webkit-calc(100% - 240px) !important; width: calc(100% - 240px) !important; float: left; }
+
+#content #contentInner #fullPart { width: 100% !important; position: relative; }
+
+#small-nav-top .title { font-size: 20px; margin-bottom: 5px; font-family: 'metanormal_roman'; }
+#small-nav-top .img-resp { width: 90%; }
+
+#responsive-left-menu { float: left; position: relative; width: 203px; top: -50px; padding-bottom: 9px; margin-right: 27px; }
+#responsive-left-menu .menu-container { background: url("../img/menu-bottom.gif") no-repeat left bottom; padding-bottom: 10px; margin-bottom: 10px; }
+#responsive-left-menu .inner { background: white url("../img/nav-bg.gif") repeat-y left top; padding: 1px; }
+#responsive-left-menu .inner .container { padding: 0 8px 0 12px; margin-bottom: 5px; }
+#responsive-left-menu #shortcut { text-align: center; }
+#responsive-left-menu #advertise-bottom a.first { margin-right: 24px; }
+#responsive-left-menu #advertise-bottom a.first img { margin-bottom: 10px; }
+#responsive-left-menu .title { font-size: 18px; padding-bottom: 5px; text-align: center; width: 210px; margin-left: -3px; font-family: 'metanormal_roman'; }
+#responsive-left-menu .infos-perso .name { font-size: 16px; padding-bottom: 5px; padding-right: 20px;
+ /*background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-menu.png") no-repeat right 3px;*/
+  }
+#responsive-left-menu .infos-perso p { font-size: 12px; color: #666; line-height: 15px; }
+
+.infobulle-espace-perso { position: absolute; z-index: 10; top: 0; right: -285px; display: none; }
+.infobulle-espace-perso .header { background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//infobulle.png") no-repeat 10px 7px; width: 300px; padding: 22px 10px 0 71px; min-height: 95px; }
+.infobulle-espace-perso .footer { padding: 0 10px 10px 71px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//infobulle-footer.png") no-repeat 10px bottom; }
+.infobulle-espace-perso a.rdv { width: 121px; height: 32px; display: block; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//button-rdv.png") no-repeat; }
+.infobulle-espace-perso .alpha { font-size: 12px; font-weight: bold; }
+.infobulle-espace-perso .beta { padding: 4px 0; }
+.infobulle-espace-perso .ico-span { padding: 10px 0 8px 25px; font-weight: bold; background: no-repeat 0 2px; }
+.infobulle-espace-perso .ico-span.phone { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-smartphone.png"); }
+.infobulle-espace-perso .ico-span.script { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-script.png"); }
+.infobulle-espace-perso.simple .alpha { margin: 10px 0 5px; }
+.infobulle-espace-perso.simple .header { min-height: 130px; }
+.infobulle-espace-perso.simple .ico-span { padding: 10px 0 12px 25px; }
+.infobulle-espace-perso.parnass { top: 6px; width: 290px; padding: 50px 0 30px 50px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//infobulle-parnass.png") no-repeat; }
+.infobulle-espace-perso.parnass .header { min-height: inherit; }
+.infobulle-espace-perso.red { top: -50px; right: -265px; }
+.infobulle-espace-perso.red .header { padding: 20px 10px 0 60px; text-align: left; height: 125px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//infobulle-red.png") no-repeat; }
+.infobulle-espace-perso.red .header p { font-size: 13px !important; color: #FFF !important; padding: 3px 0; }
+.infobulle-espace-perso.red .header p.phone { padding: 3px 0 8px 23px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//picto-tel.png") no-repeat; }
+
+.infos-perso:hover .infobulle-espace-perso, .infos-perso.hover .infobulle-espace-perso { display: block !important; }
+
+#nav-small { padding: 0 5px; margin: 0 10px; border: solid 2px #d1cec9; border-top: none; display: none; }
+#nav-small .topTitle { background: none; font-size: 20px; height: 40px; }
+#nav-small .sub-title { padding: 5px 0 5px 11px; font-size: 14px; }
+#nav-small li { padding: 7px 0 7px; }
+
+.responsive-menu .topTitle { font-family: 'metanormal_roman'; font-weight: normal; background: url("../img/nav-top.png") no-repeat left top; height: 60px; padding: 22px 10px 0; font-size: 18px; line-height: .9em; }
+.responsive-menu .topTitle.login { background: #FFF; border: solid 1px #CCC; }
+.responsive-menu li { /* background: #fff url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-li.png') no-repeat left bottom; */ border-top: solid 1px #f1ece6; padding: 2px 12px 5px; font-size: 1.1em; }
+.responsive-menu li a { background: url("../img/nav-bullet.gif") 2px 7px no-repeat; display: block; padding: 5px 0 2px 14px; text-decoration: none; }
+.responsive-menu li ul { padding-left: 12px; padding-bottom: 5px; }
+.responsive-menu li li { background: none; padding: 0 0 2px; font-size: 1em; }
+.responsive-menu li.last { background-image: none !important; }
+.responsive-menu li.active { /* background: url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-li-active.png') no-repeat left bottom; */ background-color: #e5e5e5; }
+.responsive-menu li.active a { /* background-image: url('https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-nav-red.gif'); */ background-image: url("../img/bullet-nav-active.png"); font-weight: bold; }
+
+#header-small { /*height: 91px;*/ /*text-align: center;*/ background-color: #FFF; padding-top: 2px; padding-bottom: 2px; }
+#header-small .resp { margin-top: 4px; }
+#header-small #nav-0 div { display: inline; }
+#header-small #nav-0 .logo { width: 70px; }
+#header-small #nav-0 .title { text-align: center; display: inline-block; width: -moz-calc(100% - 210px) ; width: -o-calc(100% - 210px) ; width: -webkit-calc(100% - 210px) ; width: calc(100% - 210px) ; }
+#header-small #nav-0 .display { width: 70px; }
+#header-small #nav-0 .log { width: 60px; }
+#header-small #navPictos { text-align: center; border-top: solid 1px #CCC; padding: 10px 0; }
+
+#sub-header-small { background: #333333 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//iphone-header-bg.png") repeat-x center -25px; }
+#sub-header-small .wrapper { padding: 20px 0 8px; }
+#sub-header-small a { font-family: 'metanormal_roman'; font-size: 20px; color: #FFF; text-decoration: none; padding: 0 15px; margin: 0 0 10px; }
+#sub-header-small a.first { border-right: solid 1px #FFF; padding: 0 37px 0 10px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//iphone-menu-bullet.png") no-repeat 77px 0; }
+
+body.themePM #sub-header-small { background: #333333 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//iphone-header-bg-pm.png") repeat-x 1px -82px; }
+
+/** 
+* FOOTER
+*/
+#footer-resp { width: 100%; background-color: #f9f8f5; padding: 33px 0 44px; border-top: 1px solid #e2e1dd; }
+
+#footer-resp a { text-decoration: none; }
+
+#footer-resp #footerInner { width: 940px; margin: 0 auto; }
+
+#footer-resp #footerInner #footerEntete { overflow: hidden; width: 920px; border: 1px solid #c6c6c6; border-width: 1px 0; padding: 0 0 4px 20px; }
+
+#footer-resp #footerInner #footerEntete span { float: left; color: #9f9c96; font-size: 2.27em; display: block; padding: 5px 0 0; }
+
+#footer-resp #footerInner #footerEntete form { float: right; padding-top: 2px; width: 300px; }
+
+#footer-resp #footerInner #footerEntete span.width_185 { font-size: 1em !important; }
+
+#footer-resp #footerInner #footerEntete span.flecheDroite { top: -2px !important; left: -25px !important; padding-top: 1px; }
+
+#footer-resp #footerInner #listLiens { margin: 10px 0; }
+
+#footer-resp #footerInner #footerNav { clear: both; padding: 0 25px; height: 28px; border: 1px solid #c6c6c6; line-height: 28px; text-align: center; }
+#footer-resp #footerInner #footerNav li { display: inline; padding: 0 11px 0 10px; border-right: 1px solid #999; }
+#footer-resp #footerInner #footerNav li a { font-size: 1.1em; color: #666; }
+
+#footer-resp #footerInner #listLiens li { float: left; width: 153px; list-style: none; padding-bottom: 22px; padding-left: 20px; display: list-item; }
+
+#footer-resp ul li ul { padding-bottom: 0; }
+
+#footer-resp #footerInner #listLiens li li { padding: 0 15px 0 0; line-height: 1em; margin: 3px 0; }
+
+#footer-resp #footerInner #listLiens li li a:hover { text-decoration: underline; }
+
+#footer-resp #footerInner #listLiens li li a { color: #666; }
+
+#footer-resp #footerInner #listLiens li#llAutoMoto .titleSection { color: #00b6ee; }
+
+#footer-resp #footerInner #listLiens li#llHabitation .titleSection { color: #A2C752; }
+
+#footer-resp #footerInner #listLiens li#llSantePrevoyance .titleSection { color: #A05599; }
+
+#footer-resp #footerInner #listLiens li#llServicesQuotidien .titleSection { color: #C9186B; }
+
+#footer-resp #footerInner #listLiens li#llEpargneFinance .titleSection { color: #f5a300; }
+
+#footer-resp #footerInner #listLiens li#llLaMaif .titleSection { color: #e60003; }
+
+#footer-resp #footerInner #listLiens li .titleSection { font-weight: 700; text-transform: uppercase; }
+
+#footer-resp li:last-child { border-right: none !important; }
+
+/*
+#footer {
+	clear: left;
+	width: 100%;
+	background-color: #f9f8f5;
+	padding: 33px 0 44px;
+	border-top: 1px solid #e2e1dd;
+}
+
+#footer #footerInner {
+	width: 940px;
+	margin: 0 auto;
+}
+
+#footer #footerInner #footerEntete {
+	overflow: hidden;
+	width: 920px;
+	border: 1px solid #c6c6c6;
+	border-width: 1px 0;
+	padding: 0 0 4px 20px;
+}
+*/
+th.t-2 { width: 57px; }
+th.t-3 { width: 90px; }
+th.t-4 { width: 54px; }
+.display-roll-container { width: 313px; margin-left: auto; margin-right: auto;}
+.display-roll-container .display-roll { background-color: #e5e5e5; border: solid 1px #666; position: absolute; right: 5px; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; margin-top: -2px; width: -moz-calc(100% - 10px) ; width: -o-calc(100% - 10px) ; width: -webkit-calc(100% - 10px) ; width: calc(100% - 10px) ; }
+.display-roll-container .display-roll.red { border-color: #e80016; }
+.display-roll-container .display-roll a { padding: 5px 10px; text-align: right; border-bottom: solid 1px #CCC; display: block; color: #666; }
+.display-roll-container .display-roll a.last { border: none; }
+.display-roll-container .display-roll a:hover { background-color: #CCC; }
+.display-roll-container:hover .display-roll { display: block; }
+
+.display-roll-container-2 { position: relative; float: right; cursor: pointer; }
+.display-roll-container-2 .display-roll { background-color: #e5e5e5; border: solid 1px #666; position: absolute; right: 2px; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; margin-top: -2px; width: 280px; }
+.display-roll-container-2 .display-roll.red { border-color: #e80016; }
+.display-roll-container-2 .display-roll a { padding: 5px 10px; text-align: right; border-bottom: solid 1px #CCC; display: block; color: #666; }
+.display-roll-container-2 .display-roll a.last { border: none; }
+.display-roll-container-2 .display-roll a:hover { background-color: #CCC; }
+.display-roll-container-2:hover .display-roll { display: block; }
+
+.display-roll-container-3 .display-roll { background-color: #e5e5e5; border: solid 1px #666; position: absolute; right: -61px; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; margin-top: -2px; width: -moz-calc(132% - 10px) ; width: -o-calc(132% - 10px) ; width: -webkit-calc(132% - 10px) ; width: calc(132% - 10px) ; }
+.display-roll-container-3 .display-roll.red { border-color: #e80016; }
+.display-roll-container-3 .display-roll a { padding: 5px 10px; text-align: right; border-bottom: solid 1px #CCC; display: block; color: #666; text-decoration:none;}
+.display-roll-container-3 .display-roll a.last { border: none;text-decoration:none; }
+.display-roll-container-3 .display-roll a:hover { background-color: #CCC; text-decoration:none;}
+.display-roll-container-3:hover .display-roll { display: block; }
+
+.display-roll-container-4 { width: 198px;position: relative; }
+.display-roll-container-4 .display-roll { background-color: #e5e5e5; border: solid 1px #666; position: absolute; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; top: 21px; }
+.display-roll-container-4 .display-roll.red { border-color: #e80016; }
+.display-roll-container-4 .display-roll a { padding: 5px 10px; text-align: right; border-bottom: solid 1px #CCC; display: block; color: #666; }
+.display-roll-container-4 .display-roll a.last { border: none; }
+.display-roll-container-4 .display-roll a:hover { background-color: #CCC; }
+.display-roll-container-4:hover .display-roll { display: block; }
+
+/**
+* MEDIA QUERIES
+*/
+/* Large desktop */
+@media (min-width: 1024px) { .margin-right-for-large { margin-right: 10px; }
+  #hack-4 { padding: 5px 5px 0 0; margin: 16px 0 0 17px; width: 121px; position: absolute; top: 0px; right: 5px; }
+  #hack-5 { width: 550px; }
+  #hack-13 { margin-bottom: 35px; }
+  .large-font { font-size: 1.1em !important; }
+  .no-padding-left-for-large { padding-left: 0; }
+  .large-7 .errors { width: calc(100% - 13px); } }
+/** 
+* Footer
+*/
+@media (max-width: 1024px) { #footer-resp #footerInner, #footer-resp#footerInner #footerEntete { width: 100%; }
+  #footer-resp #footerEntete form, #footer-resp #listLiens li ul, #footer-resp #footerNav { display: none; }
+  #footer-resp { padding: 20px 10px 10px; overflow: hidden; }
+  #footer-resp #footerInner #footerEntete span { font-size: 2em; }
+  #footer-resp #footerInner #listLiens li { width: 50%; padding: 5px 0; } }
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 1023px) { .margin-right-for-large { margin-right: 10px; }
+  .box-advertise-offer .col-left .top .beta { padding-top: 0; }
+  .box-advertise-offer .col-right { min-height: 116px; }
+  #hack-5 { width: 550px; }
+  #hack-3 .dark-grey { height: auto !important; }
+  #hack-13 { margin-bottom: 35px; }
+  .check.pm { background-position: 6px 6px; }
+  .large-font { font-size: 1.1em !important; }
+  #hnAutoMoto { width: 100%; }
+  #hnHabitation { width: 100%; }
+  #hnSantePrevoyance { width: 100%; }
+  #hnServicesQuotidien { width: 100%; }
+  #hnEpargneFinance { width: 100%; }
+  #headerNav form { display: none; }
+  /* #header { 	#navPictos{ 		.text{font-size: 12px;} 	} } .drop{display: none !important;} */ }
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { /* LAYOUT */
+  #main { padding-left: 0; }
+  #contentInner { font-size: 1.01em; }
+  /*.box-h3{font-size: 16px !important}*/
+  .espacePerso #main, .themePM #main { background: none !important; }
+  .to-left { text-align: left !important; }
+  .to-right { text-align: right !important; }
+  .box-alpha { font-size: 130%; }
+  .box-alpha .box-container .box-h1 { padding-right: 110px; }
+  .box-alpha .box-container .box-sinistre { padding-right: 110px; }
+  .box-alpha .box-container .box-foyer { padding-right: 110px; }
+  .box-alpha-title { font-size: 16px; }
+  .enhance { font-weight: normal !important; }
+  /* .light-grey{.enhance{font-weight: bold !important}} */
+  #content { max-width: 950px !important; width: 100% !important; }
+  #contentInner { width: 100% !important; float: left; padding: 10px; }
+  #content #contentInner #fullPart { width: 100% !important; }
+  /* MODULES */
+  .box-h2 .box-alpha-title-button, .box-h3 .box-alpha-title-button { float: none; margin: 0; }
+  .box-alpha-title-button .display-roll { right: 0; white-space: normal; min-width: 280px; }
+  .box-alpha-title-button.btn-gerer .display-roll { left: 2px; right: inherit; }
+  .list-content { border-bottom: solid 1px #CCC; margin-bottom: 10px; padding-bottom: 10px; }
+  .list-content li { padding: 15px 0 15px !important; }
+  .white-for-small { background-color: #FFF !important; }
+  .box-advertise-left .date { font-size: 15px; }
+  .box-advertise-left .text { font-size: 15px; }
+  .box-advertise-offer { /*
+    border-bottom: none !important;
+    margin-bottom: -10px !important;
+    */ }
+  .box-advertise-offer .col-left { width: 100% !important; margin: 20px 0 20px; }
+  .box-advertise-offer .col-left .top .beta { padding: 5px 10px 5px 0 !important; }
+  .box-advertise-offer .col-left .top .alpha { padding: 5px 10px 5px 0 !important; border-bottom: solid 1px #FFF; margin-bottom: 10px; }
+  .box-advertise-offer .col-left .bottom { right: 15px; top: 15px; width: auto !important; height: 70px !important; }
+  .box-advertise-offer .col-right { width: 100% !important; background: #FFF !important; }
+  .box-container.blue .box-advertise-offer .col-left .bottom { background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-blue-r.png") no-repeat bottom !important; }
+  .box-container.green .box-advertise-offer .col-left .bottom { background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-green-r.png") no-repeat bottom !important; }
+  .box-container.pm .box-advertise-offer .col-left .bottom { background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//box-advertise-offer-pm-r.png") no-repeat bottom !important; }
+  .full-width-box { padding: 0 !important; }
+  .width-box { padding: 0 !important; }
+  .box-message { font-size: 13px !important; }
+  .box-alpha.margin-right { margin-right: 0; }
+  #hack-7 { width: 75%; max-width: 112px; }
+  .line-bullet img { left: 100px !important; top: 3 !important; }
+  /* TEST */
+  .box-alpha .white-for-small.section-padding-vertical { padding: 0 !important; }
+  .white-for-small.border-bottom { border: none !important; }
+  .dotted { background: none !important; }
+  .no-margin-top-for-mobile { margin-top: 0 !important; }
+  .display-roll-container .display-roll { width: 313px; right: -moz-calc(50% - 156px) ; right: -o-calc(50% - 156px) ; right: -webkit-calc(50% - 156px) ; right: calc(50% - 156px) ; }
+  ul#navPictos li a { float: none; text-align: center; } }
+  
+/* x-small */
+/*
+.btn-avis-echeance{display: none;}
+@media (max-width: 380px) {
+	.btn-avis-echeance{margin: 5px; text-align: center; display: block}
+	.btn-avis-echeance-large{display: none}
+
+	.box-alpha-title-button.btn-gerer{float: left; margin: 5px 0;}
+}
+*/
+/* Landscape phones and down */
+
+@media (max-width: 320px) {
+	.list-content{
+		border-bottom: solid 1px #CCC; margin-bottom: 10px;
+		li{padding: 10px 0 10px;}
+	}
+}
+
+/*
+.padding-content-two.light-grey{
+	padding-top: 10px;
+}
+*/
+.rib span { padding-right: 10px; }
+
+/**
+* HELPER
+*/
+.light-grey { background-color: #f7f7f7; }
+
+.dark-grey { background-color: #e5e5e5; }
+
+.border-bottom { border-bottom: solid 1px #333; }
+
+.width-100 { width: 100%; }
+
+.width-50 { width: 50%; display: inline-block; float: left; }
+
+.width-33 { width: 33%; display: inline-block; float: left; }
+
+.height-30 { height: 30px; }
+
+.clearFloat, .clear-left { clear: left; }
+
+.clear-right { clear: right; }
+
+.float-left { float: left; }
+
+.float-right { float: right; }
+
+.clear { clear: left; }
+
+.align-center { text-align: center; }
+
+.align-bottom { vertical-align: bottom; }
+
+.align-right { text-align: right;}
+
+.align-top { text-align: right; }
+
+.margin-bottom, .margin-bottom-10 { margin-bottom: 10px; }
+
+.margin-top-10, .margin-top { margin-top: 10px; }
+.margin-top-10.double, .margin-top.double { margin-top: 20px; }
+
+.margin-left { margin-left: 10px; }
+.margin-left.double { margin-left: 20px; }
+
+.margin-right { margin-right: 10px; }
+
+.margin-line-bullet { margin-left: 15px; }
+
+.margin-bottom-light { margin-bottom: 5px; }
+
+.margin-top-15 { margin-top: 15px; }
+
+.padding-right { padding-right: 10px; }
+
+.padding-left { padding-left: 10px; }
+
+.no-margin { margin: 0 !important; }
+
+.no-margin-top { margin-top: 0 !important; }
+
+.no-padding-left { padding-left: 0; }
+
+.no-padding-right { padding-right: 0; }
+
+.enhance { font-weight: bold; }
+
+.enhance-master { font-weight: bold; }
+
+.enhance-pm { font-weight: bold; color: #166471; }
+
+.weight-normal { font-weight: normal; }
+
+.line { padding: 2px 0; }
+
+.line-4 { padding: 4px 0; }
+
+.line-5 { padding: 5px 0; }
+
+.medium-font { font-size: 12px; }
+
+.reduced { font-size: 9px; }
+
+.reduced-2 { font-size: 11px; }
+
+.no-wrap { white-space: nowrap; }
+
+.bold { font-weight: bold; }
+
+.line-bullet { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey.png") no-repeat left 6px; padding: 0px 0 5px 15px; position: relative; }
+.line-bullet img { left: 95px; top: 0; position: absolute; }
+.line-bullet.grey { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-grey-grey.png"); }
+.line-bullet.blue { background-image: url("../img/bullet-blue.png"); }
+.line-bullet.green { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-green.png"); }
+.line-bullet.orange { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bullet-orange.png"); }
+.line-bullet.light { padding: 0 0 0 15px; background-position: left 1px; }
+
+.relative { position: relative; }
+
+.position-bottom-right { position: absolute; bottom: 0; right: 0; }
+
+.position-bottom { position: absolute; bottom: 0; }
+
+.position-relative { position: relative; }
+
+.italic { font-style: italic; }
+
+.align-center { text-align: center; }
+
+.color-blue { color: #08b9f1; }
+
+.color-green { color: #a4c64d; }
+
+.color-red { color: #e80016; }
+
+.text-underline { text-decoration: underline; }
+
+.field-info { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//ico-message-info.png") no-repeat right; }
+
+.dotted { background: url("../img/dot.png") repeat-x 8px 13px; width: 110%; }
+
+.line.dotted span.dot-grey { background-color: #F7F7F7; }
+
+.line.dotted span.dot-white { background-color: #FFFFFF; }
+
+/**
+* HACK
+*/
+#deconnextion-menu { display: none !important; }
+
+#souscription-menu { display: none !important; }
+
+@media (max-width: 1280px) { #deconnection { display: none !important; }
+  #souscription { display: none !important; }
+  #deconnextion-menu { display: block !important; }
+  #souscription-menu { display: block !important; } 
+  .box-alpha-title-button .display-roll { white-space: nowrap; background-color: #e5e5e5; border: solid 1px #666; position: absolute; font-family: 'Arial'; font-size: 14px; padding: 5px 15px; z-index: 10; display: none; margin-top: -2px; }
+  }
+.no-arrow .box-h1 { background: none !important; }
+.no-arrow .box-sinistre { background: none !important; }
+.no-arrow .box-foyer { background: none !important; }
+
+.columns.no-padding { padding: 0; }
+
+.columns.no-padding-light { padding: 0 5px; }
+
+hr.resp { color: #666666; margin: 13px 0; height: 1px; }
+
+[class*="column"] + [class*="column"]:last-child { float: left; }
+
+.h-1 img { margin: 0 5px 2px 5px; }
+
+.h-2 { margin-right: 34px; }
+
+/* .h-3{padding: 5px 5px 0 0; margin-top: 16px;} */
+/* LOGIN */
+#hack-1 { margin-top: 6px; }
+
+#hack-2 { padding: 10px; }
+#hack-2 .inline-title { margin-bottom: 5px; margin-left: 25px; }
+
+#hack-3 { padding-right: 15px; }
+#hack-3 .columns { padding-left: 15px; }
+#hack-3 .columns .columns { padding-left: 0; }
+#hack-3 .dark-grey { height: 132px; }
+
+#hack-6 .col-1 { width: -moz-calc(42% - 10px) ; width: -o-calc(42% - 10px) ; width: -webkit-calc(42% - 10px) ; width: calc(42% - 10px) ; float: left; }
+#hack-6 .col-2 { width: 58.33333%; float: left; }
+
+#hack-8 { width: 40px; }
+
+.pdf { font-size: 10px !important; }
+
+#hack-11 { padding-left: 20px !important; }
+
+#hack-12 { float: right; font-weight: normal; text-decoration: underline; margin-right: 15px; }
+
+#hack-14 { font-weight: normal; text-decoration: underline; margin-left: 15px; }
+
+#hack-15 { width: 60px; }
+
+#hack-21 { margin: 20px 0; }
+#hack-21 input[type='text'] { margin-bottom: 0px; }
+
+#hack-22 { left: inherit !important; margin: 5px; }
+
+/**
+* DEVIS
+*/
+.devis-alpha { margin-top: 24px; }
+
+.devis-beta { margin-top: 9px; }
+
+.devis-alpha-2 { margin-top: 16px; }
+
+.devis-beta-2 { margin-top: 0; }
+
+.devis-gama-2 { margin-top: 6px; }
+
+/**
+* PASSWORD
+*/
+#score { color: #000; position: absolute; text-align: center; width: 100px; z-index: 10; font-weight: bold; }
+
+.scoreLevel { border: 1px solid black; width: 15px; height: 15px; float: left; border-radius: 0; -moz-border-radius: 0; -webkit-border-radius: 0; margin-left: 3px; margin-right: 15px; }
+
+.scoreColorLevel1 { background-color: #e11e19; }
+
+.scoreColorLevel2 { background-color: #F5A300; }
+
+.scoreColorLevel3 { background-color: #a2c752; }
+
+.scoreColorLevel4 { background-color: #007457; }
+
+.scoreOff { background-color: #000; }
+
+.scoreText { float: left; height: 25px; vertical-align: middle; text-align: center; font-weight: bold; }
+
+#scrollZonePassword { height: 380px; }
+
+#scoreZone { display: none; }
+
+.blocLabelInput { padding: 5px 0; }
+
+ul.arrowList li { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//puces.gif) no-repeat left 3px; padding: 0 0 2px 15px; }
+
+.btAdd,.btRemove, .eltCliquable{cursor:pointer;}
+.information{border:1px solid #D2D2D2;background:url(/img/informationGris.png) 15px 6px no-repeat #F0F0F0;padding:10px 15px 25px 75px;display:block;margin-bottom:12px;min-height:28px;}
+
+.legend{font-size:1.5em;color:#000!important;}
+
+.avisEcheanceMarginLeft{margin-left:10px;}
+.avisEcheanceImage{float:left;padding-right:30px;}
+.avisEcheanceMTop{margin-top:15px;}
+.avisEcheanceImgPicto{float:left;margin-right:10px;}
+
+
+/*Referencement naturel*/
+#footer-resp { padding: 0 0 40px; }
+#footer-resp #footerHeader { width: 100%; border-bottom: 1px solid #e2e1dd; padding: 12px 0; }
+#footer-resp #footerHeader #footerHeaderInner { width: 940px; margin: 0 auto; color: #b0b0b0; line-height: 1.3em; text-align: justify; }
+#footer-resp #footerHeader #footerHeaderInner a { color: #b0b0b0; text-decoration: underline; }
+#footer-resp #filArianeFooter { width: 940px; margin: 0 auto; padding: 10px 0; }
+#footer-resp #filArianeFooter a.arianeBack, #footer #filArianeFooter span.arianeActive { font-weight: bold; font-size: 1em; }
+#footer-resp #filArianeFooter a.arianeBack { color: #666666; }
+#footer-resp #filArianeFooter span {margin-left: 4px; margin-top: -7px;display: inline-block;}
+#footer-resp #filArianeFooter span.arianeActive { color: #000000; }
+#footer-resp #filArianeFooter #lienMaifFrDiv { display: inline-block; }
+#footer-resp #filArianeFooter #lienMaifFr { margin-left: 8px; }
+#footer-resp .footerContent { padding: 0 20px; }
+#footer-resp #footerInner #footerEntete { width: auto; overflow: auto; padding: 0; }
+#footer-resp #footerInner #footerEntete span { float: none; }
+#footer-resp #footerInner #footerEntete form { width: 215px; margin-left: 10px; margin-top: 3px; }
+#footer-resp #footerInner #footerEntete .footerContent { text-align: right; }
+#footer-resp #footerInner #footerEntete .footerContent form { display: inline-block; float: none; position: relative; }
+#footer-resp #footerInner #footerEntete .footerContent span.flecheDroite { top: 0px !important; left: 190px !important; padding-top: 1px; position: absolute; }
+.arianeFooter-caret-right { display: inline-block; height: 0; margin-left: 8px; vertical-align: middle; border-top: 4px solid transparent; border-bottom: 4px solid transparent; border-left: 4px solid; margin-right: 3px; margin-top: -3px; }
+.styleInfosLien {font-size: 1.182em;}
+
+.box-alpha .consultationErreur {margin: 10px 0;display: block;color: red;font-weight: bold;}
+
+.box-alpha .section-margin-horizontal.relative .mentionlegale {margin-left: 8px; font-size: 9px; margin-bottom: 20px; margin-top: 8px}
+
+#mlegale{font-size: 9px;}
+#ancreSinistre .accordion-content {margin-left: 6px;}
+#ancreFoyer .accordion-content {margin-left: 6px;}
+
+.foyerMember{
+	font-size:13px;
+	padding-top:3px;
+}

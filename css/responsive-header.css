@@ -1,0 +1,108 @@
+#deconnection { position: absolute; right: 10px; top: 27px; margin: 5px 10px 0 0; font-size: 13px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//subnav-picto.png") no-repeat left; padding-left: 11px; }
+
+#souscription { position: absolute; right: 10px; top: 45px; margin: 5px 10px 0 0; font-size: 13px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//subnav-picto.png") no-repeat left; padding-left: 11px; }
+
+#navTop { background: #292929 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bg-nav-top.gif") repeat-x left top; min-width: 774px; height: 28px; display: block; position: relative; }
+#navTop ul li { float: left; border-left: 1px solid #6c6b6a; border-right: 1px solid #464544; list-style: none; }
+#navTop ul li.first { border-left: none !important; }
+#navTop ul li a { display: block; float: left; padding: 6px 5px; color: #fff; font-size: 1.1em; text-decoration: none; }
+#navTop ul li a:hover { text-decoration: underline; }
+#navTop ul li#nTEsPerso { border: none; }
+#navTop ul li#nTEsPerso a { background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//bg-nav-top-red.gif") repeat-x left top; border-left: 1px solid #000; }
+#navTop ul li#nTEsPerso a:hover, #navTop ul li#nTEsPerso a.active { background-position: left -29px; }
+
+#headerHolder-resp { position: relative; max-width: 960px; padding-top: 10px;min-height:210px; height: auto !important; height: 210px; margin: 0 auto; z-index: 20; }
+
+#header-resp { width: 98%; height: 140px; padding: 14px 0 0 9px; margin: 0 0 0 0; position: absolute; background: url("../img/header-logo-maif.png") no-repeat; }
+#header-resp ul { padding: 0; }
+#header-resp li { list-style-type: none; }
+#header-resp #logoMaif { /*width: 15.7%;*/ background-color: #fff; float: left; }
+#header-resp #logoMaif img { border: solid 1px #D3D0CA; }
+#header-resp #headerNav { width: -moz-calc(100% - 155px) ; width: -o-calc(100% - 155px) ; width: -webkit-calc(100% - 155px) ; width: calc(100% - 155px) ; height: -moz-calc(100% - 5px) ; height: -o-calc(100% - 5px) ; height: -webkit-calc(100% - 5px) ; height: calc(100% - 5px) ; border-bottom: solid 1px #D3D0CA; border-right: solid 1px #D3D0CA; position: relative; float: left; }
+#header-resp #headerNav form { position: absolute; right: 4px; top: 5px; z-index: 100; }
+#header-resp #headerNav form #search { float: left; }
+#header-resp #headerNav form #search { border: none; height: auto; width: 202px; padding: 5px; font-size: 12px; float: left; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/input-search-grey.gif") no-repeat left top; }
+#header-resp #headerNav form .buttonSubmit { float: left; width: 34px; height: 30px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/input-ok.png") no-repeat left top; text-indent: -9999px; overflow: hidden; cursor: pointer; border: none; }
+#header-resp #headerNav #navType2 #navPictos li a:hover span { display: none; }
+#header-resp #navPictos { clear: left; width: 100%; padding: 0; position: absolute; top: 40px; z-index: 31; }
+#header-resp #navPictos li { width: 20%; float: left; text-align: center; position: relative; background: none; }
+#header-resp #navPictos li li { position: static; }
+#header-resp #navPictos li .dropDownMenu a { float: none; display: inline; width: auto; height: auto; background: none; color: #8a8782; text-indent: 0; }
+#header-resp #navPictos li .drop a { float: none; display: inline; width: auto; height: auto; background: none; color: #8a8782; text-indent: 0;text-decoration: none; }
+#header-resp #navPictos li > a { height: 75px; text-indent: -9999px; text-decoration: none; padding: 0; outline: none; display: inline-block; width: 100%; background-size: contain !important; }
+
+#header-resp #navPictos li#hnAutoMoto > a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/nav-onglets-pictos_02.png) no-repeat; }
+#header-resp #navPictos li#hnAutoMoto > a.active { background-position: 0 -137px; }
+#header-resp #navPictos li#hnAutoMoto .drop { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-t-auto.png"); left: 8px; top: 59px; }
+#header-resp #navPictos li#hnAutoMoto .drop a:hover { color: #00b8ff; }
+#header-resp #navPictos li#hnHabitation > a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/nav-onglets-pictos_03.png) no-repeat; }
+#header-resp #navPictos li#hnHabitation > a.active { background-position: -145px -137px; }
+#header-resp #navPictos li#hnHabitation .drop { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-t-habitation.png"); left: 3px; top: 59px; width: 145px; }
+#header-resp #navPictos li#hnHabitation .drop a:hover { color: #a2c852; }
+#header-resp #navPictos li#hnSantePrevoyance > a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/nav-onglets-pictos_04.png) no-repeat; }
+#header-resp #navPictos li#hnSantePrevoyance > a.active { background-position: -303px -137px; }
+#header-resp #navPictos li#hnSantePrevoyance .drop { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-t-sante.gif"); left: 3px; top: 59px; width: 145px; }
+#header-resp #navPictos li#hnSantePrevoyance .drop a:hover { color: #A05599; }
+#header-resp #navPictos li#hnServicesQuotidien > a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/nav-onglets-pictos_05.png) no-repeat; }
+#header-resp #navPictos li#hnServicesQuotidien > a.active { background-position: -446px -137px; }
+#header-resp #navPictos li#hnServicesQuotidien .drop { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-t-services.gif"); left: 0; top: 59px; }
+#header-resp #navPictos li#hnServicesQuotidien .drop a:hover { color: #C9186B; }
+#header-resp #navPictos li#hnEpargneFinance > a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/nav-onglets-pictos_06.png) no-repeat; }
+#header-resp #navPictos li#hnEpargneFinance > a.active { background-position: -599px -137px; }
+#header-resp #navPictos li#hnEpargneFinance .drop { background-image: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-t-epargne.png"); left: 0; top: 59px; }
+#header-resp #navPictos li#hnEpargneFinance .drop a:hover { color: #f5a300; }
+#header-resp #navPictos li#hnAssociationsPM a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat 0 -512px; width: 181px; }
+#header-resp #navPictos li#hnEtablissementsPM a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -207px -512px; width: 167px; }
+#header-resp #navPictos li#hnCollectivitesPM a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -400px -512px; width: 167px; }
+#header-resp #navPictos li#hnAutresStructures a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -589px -512px; width: 158px; }
+#header-resp #navPictos .drop { background: #FFF no-repeat left top; /*display: none;*/ position: absolute; z-index: 99; color: #8a8782; border-right: 1px solid #cacaca; border-left: 1px solid #b1b1b0; width: 150px; padding: 22px 0 0; }
+#header-resp #navPictos .drop a { float: none; display: inline; width: auto; height: auto; background: none; color: #8a8782; text-indent: 0; }
+#header-resp #navPictos .drop .list { padding: 6px 8px 0; background: white url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//header/drop-bottom-auto.png") no-repeat left bottom; }
+#header-resp #navPictos .drop p { padding: 0 0 8px; text-align: center; }
+#header-resp #navPictos .drop p.title { text-align: center; font-size: 10px; background: url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//drop-bg-title.png") left bottom repeat-x; line-height: 1.2em; padding: 0 0 10px; margin: 0 8px; }
+#header-resp #navOnglets-container { background-color: #e7e6e5; border-top: solid 1px #D3D0CA; border-bottom: solid 1px #D3D0CA; }
+#header-resp #navOnglets { position: absolute; height: 34px; background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//onglets-bg.gif) repeat-x left top; padding: 3px 0 0 5px; width: 100%; z-index: 32; }
+#header-resp #navOnglets li { float: left; list-style: none; margin: 0; padding: 0; }
+#header-resp #navOnglets li a { display: block; text-indent: -9999px; text-decoration: none; width: 157px; height: 31px; padding: 0; outline: none; }
+#header-resp #navOnglets li a span { display: none; width: 162px; height: 60px; position: relative; text-indent: 0; color: #8a8782; font-size: .9em; font-weight: 400; line-height: 10px; text-align: center; padding: 16px 10px 10px; z-index: 25; }
+#header-resp #navOnglets li a:hover span { display: block; }
+#header-resp #navOnglets li img { width: 100%; margin-bottom: -1px; }
+#header-resp #navOnglets li#noParticuliers a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat scroll 0 top transparent; }
+#header-resp #navOnglets li#noParticuliers a.active { background-position: 0 -31px; }
+#header-resp #navOnglets li#noParticuliers a:hover span { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//span-particuliers.png) no-repeat left top transparent; left: 6px; }
+#header-resp #navOnglets li#noEnseignants a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat scroll -157px top transparent; }
+#header-resp #navOnglets li#noEnseignants a.active { background-position: -157px -31px; }
+#header-resp #navOnglets li#noEnseignants a:hover span { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//span-enseignants.png) no-repeat left top transparent; left: -9px; }
+#header-resp #navOnglets li#noAssociations a { width: 205px; background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat scroll -314px top transparent; }
+#header-resp #navOnglets li#noAssociations a span { width: 175px; }
+#header-resp #navOnglets li#noAssociations a.active { background-position: -314px -31px; }
+#header-resp #navOnglets li#noAssociations a:hover span { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//span-associations.png) no-repeat left top transparent; left: 14px; }
+
+@media (min-width: 1024px) { li:hover .drop { display: block !important; } }
+#header-small { /*height: 91px;*/ /*text-align: center;*/ background-color: #FFF; padding-top: 2px; padding-bottom: 2px; }
+#header-small .resp { margin-top: 4px; }
+#header-small #nav-0 div { display: inline; }
+#header-small #nav-0 .logo { width: 70px; }
+#header-small #nav-0 .title { text-align: center; display: inline-block; width: -moz-calc(100% - 210px) ; width: -o-calc(100% - 210px) ; width: -webkit-calc(100% - 210px) ; width: calc(100% - 210px) ; }
+#header-small #nav-0 .display { width: 70px; }
+#header-small #nav-0 .log { width: 60px; }
+#header-small #navPictos { text-align: center; border-top: solid 1px #CCC; padding: 10px 0; display: none; }
+
+#sub-header-small { background: #333333 url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//iphone-header-bg.png") repeat-x center -25px; }
+#sub-header-small .wrapper { padding: 20px 0 8px; }
+#sub-header-small a { font-family: 'metanormal_roman'; font-size: 20px; color: #FFF; text-decoration: none; padding: 0 15px; margin: 0 0 10px; }
+#sub-header-small a.first { border-right: solid 1px #FFF; padding: 0 37px 0 10px; background: transparent url("https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//iphone-menu-bullet.png") no-repeat 77px 0; }
+.offleft { position: absolute; left: -9999px; width: 2000px; }
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { #headerHolder-resp { min-height: 0px; }
+  #header-resp #navPictos li#hnAutoMoto a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat 0 -62px; width: 100px; }
+  #header-resp #navPictos li#hnAutoMoto a:hover { background-position: 0 -137px; }
+  #header-resp #navPictos li#hnHabitation a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -145px -62px; width: 113px; }
+  #header-resp #navPictos li#hnHabitation a:hover { background-position: -145px -137px; }
+  #header-resp #navPictos li#hnSantePrevoyance a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -303px -62px; width: 112px; }
+  #header-resp #navPictos li#hnSantePrevoyance a:hover { background-position: -303px -137px; }
+  #header-resp #navPictos li#hnServicesQuotidien a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -446px -62px; width: 133px; }
+  #header-resp #navPictos li#hnServicesQuotidien a:hover { background-position: -446px -137px; }
+  #header-resp #navPictos li#hnEpargneFinance a { background: url(https://www.cdn-maif.fr/contentdev/20161017_101823/ressources/war/img//nav-onglets-pictos.gif) no-repeat -599px -62px; width: 141px; }
+  #header-resp #navPictos li#hnEpargneFinance a:hover { background-position: -599px -137px; } }
