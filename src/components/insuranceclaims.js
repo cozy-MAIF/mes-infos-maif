@@ -19,7 +19,6 @@ const Insuranceclaims = React.createClass({
 			var content = "";
 			if (data[s]["immatriculationVehicule"] != undefined && data[s]["immatriculationVehicule"] != ""){ //sinistre véhicule
 				var myVehicle = that.getVehicleByPlate(data[s]["immatriculationVehicule"]);
-				console.log("vehicle : " + myVehicle);
 				if(myVehicle != undefined){
 					var vehicleBrand = myVehicle["marque"] == undefined ? "" : myVehicle["marque"];
 					var vehicleModel = myVehicle["famille"] == undefined ? "" : myVehicle["famille"];
@@ -79,9 +78,6 @@ const Insuranceclaims = React.createClass({
 	* get vehicle by plate number
 	*/
 	getVehicleByPlate: function(plate){
-		// console.log("getVehicleByPlate");
-		// console.log(this.props.vehicles);
-		// console.log("plate : " + plate);
 		if(this.props.vehicles != undefined){
 			for (var i = this.props.vehicles.length - 1; i >= 0; i--) {
 				if(this.props.vehicles[i].immatriculationVehicule == plate){

@@ -4,8 +4,8 @@
   "version": "1.0.0",
   "description": "Vos infos MAIF",
   "icon-path": "logo_maif.png",
-  "cozy-type": "static",
   "main": "src/app.js",
+  "cozy-type": "static",
   "cozy-permissions": {
     "MaifUser": {
       "description": "Pour enregistrer et récupérer vos données."

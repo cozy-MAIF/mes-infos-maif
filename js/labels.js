@@ -39,13 +39,11 @@ var appLabels = [
     "quality": "qualité :",
     "email": "E-MAIL :",
     "name": "Nom : ",
-
     "auto-moto": "Auto-Moto",
     "pacs_label": "Protection du conducteur et des passagers",
     "habitation": "Habitation",
     "health": "Santé-Prévoyance",
     "multirisque": "Multirisque professionnelle",
-
     "sinistre_number": "Sinistre N°",
     "vehicle_concerns": "Concerne le véhicule :",
     "plate": "Immatriculation : ",
@@ -55,18 +53,13 @@ var appLabels = [
     "libelleTypeLieuSurvenance" : "Type de lieu de survenance : ",
     "driver" : "Conducteur : ",
     "everyday_service":"Services au Quotidien",
-
     "place": "lieu",
     "places": "lieux",
-
     "boat": "bateau",
     "boats": "bateaux",
-
     "praxis_label": "Protection des accidents corporels de la vie quotidienne",
     "praxis_solutions_label": "Protection des accidents de la vie courante",
     "protection_juridique_label": "Couverture des principaux litiges de la vie quotidienne",
-    
-
     "contract": "contrat",
     "contracts": "contrats",
     "vam_insurance": "ASSURANCE VAM",
@@ -76,12 +69,10 @@ var appLabels = [
     "praxis_solutions_insurance": "ASSURANCE CORPORELLE PRAXIS SOLUTIONS",
     "protection_juridique_insurance": "ASSURANCE PROTECTION JURIDIQUE",
     "protection_multirisque": "OFFRE MÉTIERS DE L'ÉDUCATION",
-
     "nautis_insurance": "CONTRAT NAUTIS",
     "navigation_de_plaisance": " - navigation de plaisance",
     "insured_boat": "Bateau assuré",
     "boat_franchinse": "Franchise dommage générale",
-
     "vehicle": "véhicule",
     "vehicles": "véhicules",
     "price": "Cotisation",
@@ -91,13 +82,10 @@ var appLabels = [
     "from_date": "A partir du",
     "formula": "Formule",
     "linked_driver": "Conducteur déclaré",
-
     "foyer_data": "Données foyer",
     "foyer_infos": "Informations foyer",
     "foyer_name": "Nom du foyer : ",
     "foyer_address": "Adresse du foyer : ",
-
-
   }
 ];
 

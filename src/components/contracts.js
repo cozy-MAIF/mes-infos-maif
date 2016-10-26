@@ -450,6 +450,9 @@ const Contracts = React.createClass({
 								</div>;
 				
 			}
+			/**
+			* NAUTIS
+			*/
 			if(nautis.length != 0){
 				nautisContent = Object.keys(nautis).map(function(i){
 					var price_nautis = nautis[i]["montantTarifTtc"];
@@ -702,6 +705,9 @@ const Contracts = React.createClass({
 		return protection;
 	},
 
+	/*
+	*generate multirisque part
+	*/
 	generateMultirisque: function(ome){
 		if(ome.length != 0){
 			var data = this.props.data;
