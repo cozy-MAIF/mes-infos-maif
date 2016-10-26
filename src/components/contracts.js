@@ -20,6 +20,10 @@ const Contracts = React.createClass({
 		var praxis = new Array();
 		var praxis_solutions = new Array();
 		var ome = new Array();
+		var pj = new Array();
+
+		//a voir
+		var nautis = new Array();
 
 		//sort different contracts into arrays
 		Object.keys(data).map(function(c) {
@@ -42,11 +46,16 @@ const Contracts = React.createClass({
 				case "PRAXIS Solutions":
 					praxis_solutions.push(data[c]);
 				break;
+				case "CONTRAT PROTECTION JURIDIQUE":
+					pj.push(data[c]);
+				break;
+				case "NAUTIS":
+					nautis.push(data[c]);
+				break;
 				case "OME":
 					ome.push(data[c]);
 				break;
 				default:
-					// vam.push(data[c]);
 				break;
 			}
 		});
@@ -54,8 +63,10 @@ const Contracts = React.createClass({
 			return (
 			<span>
 					{this.generateAutoMoto(vam, pacs)}
-					{this.generateHabitation(raqvam)}
+					{this.generateHabitation(raqvam, nautis)}
 					{this.generateSante(praxis, praxis_solutions)}
+					{this.generatePJ(pj)}
+					{this.generateMultirisque(ome)}
 			</span>);
 	},
 
@@ -359,92 +370,141 @@ const Contracts = React.createClass({
 	/*
 	*generate habitation part
 	*/
-	generateHabitation: function(raqvam){
-		if(raqvam.length != 0){
+	generateHabitation: function(raqvam, nautis){
+		if(raqvam.length != 0 || nautis.length != 0){
 			var data = this.props.data;
 			var labels = this.props.labels;
 			var raqvamPendant = "";
 			var raqvamContent = "";
 			var raqvamAmount = 0;
 
-			raqvamContent = Object.keys(raqvam).map(function(i){
-				var price = raqvam[i]["montantTarifTtc"];
-				if(raqvam[i]["objects"]["lieu"] != undefined){
-					var startDate = raqvam[i]["objects"]["startDate"];
-						raqvamAmount += raqvam[i]["objects"]["lieu"] == undefined ? 0 : raqvam[i]["objects"]["lieu"].length;
-						return (raqvam[i]["objects"]["lieu"]).map(function(i){
-							var address = i["address"]["street"];
-							var cp = i["address"]["postCode"];
-							var city = i["address"]["city"];
-							var placeHeader = <div className="row">
-									<div className="columns large-12 medium-6 small-12 padding-bottom-10">
-	                                    <div className="box-h3 colorize">                                      
-	                                        {city}
-	                                    </div>
-	                                </div>
-								</div>;
-								var place = <div className="row">
-		                                <div className="columns large-12 margin-bottom">
-		                                    <div className="columns">                                     
-		                                            <div className="line enhance-master">                                               
-		                                                {labels["insurance_from_date"]} {startDate} {labels["for_your_risks"]}
-		                                            </div>
-		                                        
-		                                        <div className="line large-font">                                            
-		                                            {address}, {cp}, {city}            
-		                                        </div>
+			var nautisPendant = "";
+			var nautisContent = "";
+			var nautisAmount = 0;
+
+			if(raqvam.length != 0){
+				raqvamContent = Object.keys(raqvam).map(function(i){
+					var price = raqvam[i]["montantTarifTtc"];
+					if(raqvam[i]["objects"]["lieu"] != undefined){
+						var startDate = raqvam[i]["objects"]["startDate"];
+							raqvamAmount += raqvam[i]["objects"]["lieu"] == undefined ? 0 : raqvam[i]["objects"]["lieu"].length;
+							return (raqvam[i]["objects"]["lieu"]).map(function(i){
+								var address = i["address"]["street"];
+								var cp = i["address"]["postCode"];
+								var city = i["address"]["city"];
+								var placeHeader = <div className="row">
+										<div className="columns large-12 medium-6 small-12 padding-bottom-10">
+		                                    <div className="box-h3 colorize">                                      
+		                                        {city}
 		                                    </div>
 		                                </div>
-		                            </div>;
-							var cotisation = <div className="section-margin">
-					                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
-					                                <div className="hide-for-small">
-					                                    <div className="row">
-					                                        <div className="columns large-5 medium-8">
-					                                            <div className="line dotted">
-					                                                <span className="dot-grey">
-					                                                    {labels["price"]}
-					                                                </span>
-					                                            </div>
-					                                        </div>
-					                                        <div className="columns large-3 medium-4 small-3">
-					                                            <div className="line enhance-master">
-					                                                    <div className="line enhance-master">
-					                                                        {price} €
-					                                                     </div>
-					                                           </div>
-					                                        </div>
-					                                    </div>
-					                              	</div>
-					                            </div>
-					                        </div>;
-					        return <span>{placeHeader}{place}{cotisation}</span>;
+									</div>;
+									var place = <div className="row">
+			                                <div className="columns large-12 margin-bottom">
+			                                    <div className="columns">                                     
+			                                            <div className="line enhance-master">                                               
+			                                                {labels["insurance_from_date"]} {startDate} {labels["for_your_risks"]}
+			                                            </div>
+			                                        
+			                                        <div className="line large-font">                                            
+			                                            {address}, {cp}, {city}            
+			                                        </div>
+			                                    </div>
+			                                </div>
+			                            </div>;
+								var cotisation = <div className="section-margin">
+						                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
+						                                <div className="hide-for-small">
+						                                    <div className="row">
+						                                        <div className="columns large-5 medium-8">
+						                                            <div className="line dotted">
+						                                                <span className="dot-grey">
+						                                                    {labels["price"]}
+						                                                </span>
+						                                            </div>
+						                                        </div>
+						                                        <div className="columns large-3 medium-4 small-3">
+						                                            <div className="line enhance-master">
+						                                                    <div className="line enhance-master">
+						                                                        {price} €
+						                                                     </div>
+						                                           </div>
+						                                        </div>
+						                                    </div>
+						                              	</div>
+						                            </div>
+						                        </div>;
+						        return <span>{placeHeader}{place}{cotisation}</span>;
 
-						});
-				}
-			});
-			
-			raqvamPendant = <div className="row">
-								<div className="colomns large-12">
-									<div className="box-h2">
-										{labels["raqvam_insurance"]}
-										<span className="vecAmount"> {raqvamAmount} {(raqvamAmount) > 1 ? labels["places"] : labels["place"]}</span>
+							});
+					}
+				});
+				
+				raqvamPendant = <div className="row">
+									<div className="colomns large-12">
+										<div className="box-h2">
+											{labels["raqvam_insurance"]}
+											<span className="vecAmount"> {raqvamAmount} {(raqvamAmount) > 1 ? labels["places"] : labels["place"]}</span>
+										</div>
 									</div>
-								</div>
-							</div>;
+								</div>;
+				
+			}
+			if(nautis.length != 0){
+				nautisContent = Object.keys(nautis).map(function(i){
+					var price_nautis = nautis[i]["montantTarifTtc"];
+					if(nautis[i]["objects"]["bateau"] != undefined){
+						var startDate = nautis[i]["objects"]["startDate"];
+							nautisAmount += nautis[i]["objects"]["bateau"] == undefined ? 0 : nautis[i]["objects"]["bateau"].length;
+							return (nautis[i]["objects"]["bateau"]).map(function(i){
+									var boat_nautis = <div className="section-margin">
+					                        <table>
+					                            <thead>
+					                                <tr>
+					                                    <th>Bateau assuré</th>
+					                                    <th>Immatriculation</th>
+					                                    <th>Franchise dommage générale</th>
+					                                </tr>
+					                            </thead>
+					                            <tbody>
+			                                        <tr>
+			                                            <td></td>
+			                                            <td>{i["immatriculationBateau"]}</td>
+			                                            <td> {price_nautis} €</td>
+			                                        </tr>
+					                            </tbody>
+					                        </table>
+					                    </div>;
+						        return <span>{boat_nautis}</span>;
+							});
+					}
+				});
+				
+				nautisPendant = <div className="row">
+									<div className="colomns large-12">
+										<div className="box-h2">
+											{labels["nautis_insurance"]}
+											<span className="vecAmount"> {labels["navigation_de_plaisance"]}</span>
+										</div>
+									</div>
+								</div>;
+			}
+
 
 			var habitation = <div id="ancreContratHabitation" className="box-alpha unfold short">
 				<div className="box-container green">
 					<div className="box-h1">
 		                {labels["habitation"]}
 		                <div className="inline-right">
-		                    {raqvam.length} {raqvam.length > 1 ? labels["contracts"] : labels["contract"]}
+		                    {(raqvam.length + nautis.length)} {(raqvam.length + nautis.length) > 1 ? labels["contracts"] : labels["contract"]}
 		                </div>
 		            </div>
 		            <div className="accordion-content" style={{display: 'none'}}>
 		                {raqvamPendant}
 		                {raqvamContent}
 		                <hr/>
+		                {nautisPendant}
+		                {nautisContent}
 		            </div>
 	            </div>
 			</div>;
@@ -560,6 +620,158 @@ const Contracts = React.createClass({
 		}
 
 		return sante;
+	},
+
+	/**
+	* generate protection juridique
+	*/
+	generatePJ: function(pj){
+		if(pj.length != 0){
+			var data = this.props.data;
+			var labels = this.props.labels;
+			var pjPendant = "";
+			var pjContent = "";
+			var pjFormula = "";
+			var pjAmount = 0;
+			var pjPrice = "";
+
+			var protection = "";
+
+			var price = pj[0]["montantTarifTtc"] != undefined ? pj[0]["montantTarifTtc"] : "";
+
+			pjPendant = <div className="row">
+								<div className="colomns large-12">
+									<div className="box-h2">
+										{labels["protection_juridique_insurance"]}
+									</div>
+								</div>
+							</div>;
+
+			pjContent = <div className="row">
+		                        <div className="large-12 columns margin-bottom-10">
+		                            <div className="box-h3 colorize">
+		                                {labels["protection_juridique_label"]}
+		                            </div>
+		                        </div>
+		                    </div>;
+
+		    pjFormula = <div className="row white-for-small section-padding-vertical">
+                    <div className="columns large-6 medium-6 small-6">
+                        <div className="line">
+                            {pj[0]["formuleBase"] != undefined ? labels["formula"] : ""}
+                        </div>
+                        <div className="line enhance-master large-font">
+                        	{pj[0]["formuleBase"]}
+                        </div>
+                        <div className="line show-for-small">&nbsp;</div>
+                    </div>
+                </div>;
+
+            pjPrice =
+            		<div className="section-margin"> 
+            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
+                            <div className="large-6 medium-6 small-6 columns">
+                                {labels["price"]}
+                            </div>
+                            <div className="large-6 medium-6 small-6 columns enhance to-right">
+                                {price} €
+                            </div>
+                        </div>
+                    </div>;
+
+            var protection = <div id="ancreContratQuotidien" className="box-alpha unfold short">
+						<div className="box-container pink">
+							<div className="box-h1">
+				                {labels["everyday_service"]}
+				                <div className="inline-right">
+				                    {pj.length} {pj.length > 1 ? labels["contracts"] : labels["contract"]}
+				                </div>
+				            </div>
+				            <div className="accordion-content" style={{display: 'none'}}>
+				            	{pjPendant}
+				            	{pjContent}
+				            	{pjFormula}
+				            	{pjPrice}
+				            </div>
+						</div>
+					</div>;
+		}
+		else{
+			var protection = "";
+		}
+		return protection;
+	},
+
+	generateMultirisque: function(ome){
+		if(ome.length != 0){
+			var data = this.props.data;
+			var labels = this.props.labels;
+			var omePendant = "";
+			var omeContent = "";
+			var omeFormula = "";
+			var omeAmount = 0;
+			var omePrice = "";
+
+			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
+			var startDate = ome[0]["startDate"] != undefined ? ome[0]["startDate"] : "";
+
+			omePendant = <div className="row">
+								<div className="colomns large-12">
+									<div className="box-h2">
+										{labels["protection_multirisque"]}
+									</div>
+								</div>
+							</div>;
+
+			omeContent = <div className="section-margin">
+		                        <div className="row light-grey white-for-small border-bottom margin-bottom-10 section-padding-vertical">
+		                            <div className="columns large-5 medium-5 small-6">
+			                            <div className="line">
+			                                {/*Nom et prénom des bénéficiaires*/}
+			                            </div>
+			                                <div className="line enhance-master large-font">
+			                                </div>
+			                            <div className="line show-for-small">&nbsp;</div>
+			                        </div>
+			                        <div className="columns large-3 medium-3 small-6">
+			                            <div className="line">
+			                                {labels["effect_date"]}
+			                            </div>
+			                            <div className="line enhance-master large-font">
+			                                {labels["from_date"]} {startDate}
+			                            </div>
+			                        </div>
+			                        <div className="columns large-4 medium-4 small-12">
+			                            <div className="line">
+			                                {labels["price"]}
+			                            </div>
+			                            <div className="line enhance-master large-font">
+			                                {price}
+			                                &nbsp;€
+			                            </div>
+			                        </div>
+		                        </div>
+		                    </div>;
+
+            var multirisque = <div id="ancreContratMultiRisque" className="box-alpha unfold short">
+						<div className="box-container grey">
+							<div className="box-h1">
+				                {labels["multirisque"]}
+				                <div className="inline-right">
+				                    {ome.length} {ome.length > 1 ? labels["contracts"] : labels["contract"]}
+				                </div>
+				            </div>
+				            <div className="accordion-content" style={{display: 'none'}}>
+				            	{omePendant}
+				            	{omeContent}
+				            </div>
+						</div>
+					</div>;
+		}
+		else{
+			var multirisque = "";
+		}
+		return multirisque;
 	},
 
 	/**

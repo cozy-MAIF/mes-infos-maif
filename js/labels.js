@@ -44,6 +44,7 @@ var appLabels = [
     "pacs_label": "Protection du conducteur et des passagers",
     "habitation": "Habitation",
     "health": "Santé-Prévoyance",
+    "multirisque": "Multirisque professionnelle",
 
     "sinistre_number": "Sinistre N°",
     "vehicle_concerns": "Concerne le véhicule :",
@@ -64,6 +65,7 @@ var appLabels = [
     "praxis_label": "Protection des accidents corporels de la vie quotidienne",
     "praxis_solutions_label": "Protection des accidents de la vie courante",
     "protection_juridique_label": "Couverture des principaux litiges de la vie quotidienne",
+    
 
     "contract": "contrat",
     "contracts": "contrats",
@@ -72,12 +74,21 @@ var appLabels = [
     "raqvam_insurance": "ASSURANCE HABITATION RAQVAM",
     "praxis_insurance": "ASSURANCE CORPORELLE PRAXIS",
     "praxis_solutions_insurance": "ASSURANCE CORPORELLE PRAXIS SOLUTIONS",
-    "protection_juridique": "ASSURANCE PROTECTION JURIDIQUE",
+    "protection_juridique_insurance": "ASSURANCE PROTECTION JURIDIQUE",
+    "protection_multirisque": "OFFRE MÉTIERS DE L'ÉDUCATION",
+
+    "nautis_insurance": "CONTRAT NAUTIS",
+    "navigation_de_plaisance": " - navigation de plaisance",
+    "insured_boat": "Bateau assuré",
+    "boat_franchinse": "Franchise dommage générale",
+
     "vehicle": "véhicule",
     "vehicles": "véhicules",
     "price": "Cotisation",
     "insurance_from_date": "Vous êtes assurée depuis le ",
     "for_your_risks": " pour vos risques de propriétaire",
+    "effect_date": "Date d'effet",
+    "from_date": "A partir du",
     "formula": "Formule",
     "linked_driver": "Conducteur déclaré",
 

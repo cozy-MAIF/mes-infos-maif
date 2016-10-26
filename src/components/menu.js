@@ -35,9 +35,11 @@ const Menu = React.createClass({
     generateHeader: function(){
     	var socName = "";
       var socFirstname = "";
-      if(this.props.data["MesInfos"]["client"] != undefined){
-        socName = this.props.data["MesInfos"]["client"]["name"]["family"];
-      	socFirstname = this.props.data["MesInfos"]["client"]["name"]["given"];
+      if(this.props.data["MesInfos"] != undefined){
+        if(this.props.data["MesInfos"]["client"] != undefined){
+          socName = this.props.data["MesInfos"]["client"]["name"]["family"];
+        	socFirstname = this.props.data["MesInfos"]["client"]["name"]["given"];
+        }
       }
       
     	return <div className='container'>
@@ -72,7 +74,7 @@ const Menu = React.createClass({
     handleMenuClick: function(scope, k, element){
       $('.menu_item').removeClass("active");
       $('#'+k).addClass("active");
-      
+
     	$('.element-part').removeClass('element-displayed').addClass('element-hidden');
     	$('.part-'+scope).addClass('element-displayed');
     }
