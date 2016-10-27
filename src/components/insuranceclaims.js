@@ -15,7 +15,7 @@ const Insuranceclaims = React.createClass({
 			var data = this.props.data;
 			var labels = this.props.labels;
 			var vehicleName = "";
-			var test = Object.keys(data).map(function(s) {
+			var sinistre = Object.keys(data).map(function(s) {
 			var content = "";
 			if (data[s]["immatriculationVehicule"] != undefined && data[s]["immatriculationVehicule"] != ""){ //sinistre véhicule
 				var myVehicle = that.getVehicleByPlate(data[s]["immatriculationVehicule"]);
@@ -43,7 +43,7 @@ const Insuranceclaims = React.createClass({
 				<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
 				</div>;
 			}
-			else{ //sinistre bateau ???
+			else{ // Sinistre bateau, non remonté dans les flux donc non traité
 				
 			}
 			return 	(
@@ -71,7 +71,7 @@ const Insuranceclaims = React.createClass({
 						</div>
 						)
 		});
-		return (<div className="box-alpha">{test}</div>);
+		return (<div className="box-alpha">{sinistre}</div>);
 	},
 
 	/**

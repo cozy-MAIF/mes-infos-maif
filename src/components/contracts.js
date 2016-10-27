@@ -22,7 +22,6 @@ const Contracts = React.createClass({
 		var ome = new Array();
 		var pj = new Array();
 
-		//a voir
 		var nautis = new Array();
 
 		//sort different contracts into arrays
@@ -505,7 +504,7 @@ const Contracts = React.createClass({
 		            <div className="accordion-content" style={{display: 'none'}}>
 		                {raqvamPendant}
 		                {raqvamContent}
-		                <hr/>
+		                {raqvam.length != 0 && nautis.length != 0 ? <hr/> : ""}
 		                {nautisPendant}
 		                {nautisContent}
 		            </div>

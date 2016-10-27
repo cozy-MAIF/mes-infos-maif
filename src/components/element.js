@@ -26,7 +26,6 @@ const Element = React.createClass({
 	generateTables: function(){
 		var elementsObject = elements[0];
 		var that = this;
-		//element-hidden
 		return Object.keys(elementsObject).map(function(k) {
 			var element = that.generateContent(k);
 			return <div id='contentInner' className={(k == 'contracts' ? 'element-displayed' : 'element-hidden') + " element-part part-"+k}>
@@ -80,11 +79,11 @@ const Element = React.createClass({
 				break;
 			}
 			if(data == undefined){
-				content = <div><h1>{this.props.errorHandler("noData")}</h1></div>;
+				content = <span><br /><br /><br /><br /><div className="box-message bottom"><span className="inline-title">{this.props.errorHandler("noData")}</span></div></span>;
 			}
 		}
 		else{
-			content = <div><h1>{this.props.errorHandler("noData")}</h1></div>;
+			content = <span><br /><br /><br /><br /><div className="box-message bottom"><span className="inline-title">{this.props.errorHandler("noData")}</span></div></span>;
 		}
 		return content;
 	},
