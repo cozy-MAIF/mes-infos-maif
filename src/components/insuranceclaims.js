@@ -11,11 +11,12 @@ const Insuranceclaims = React.createClass({
 
 	render: function(){
 
-			var that = this;
-			var data = this.props.data;
-			var labels = this.props.labels;
-			var vehicleName = "";
-			var sinistre = Object.keys(data).map(function(s) {
+		var that = this;
+		var data = this.props.data;
+		var labels = this.props.labels;
+		var vehicleName = "";
+		
+		var sinistre = Object.keys(data).map(function(s) { //for each insuranceClaims
 			var content = "";
 			if (data[s]["immatriculationVehicule"] != undefined && data[s]["immatriculationVehicule"] != ""){ //sinistre véhicule
 				var myVehicle = that.getVehicleByPlate(data[s]["immatriculationVehicule"]);
@@ -25,23 +26,23 @@ const Insuranceclaims = React.createClass({
 					vehicleName = vehicleBrand + " " + vehicleModel;
 				}
 				content = <div>
-				{labels["vehicle_concerns"]}  <br />
-				<b>{vehicleName} <br />
-				{labels["plate"]} {data[s]["immatriculationVehicule"]}
-				</b><br />
-				<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
-				<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
-				<b>{labels["driver"]} {data[s]["driver"]["family"] + " " + data[s]["driver"]["given"]}</b><br />
-				</div>;
+					{labels["vehicle_concerns"]}  <br />
+					<b>{vehicleName} <br />
+					{labels["plate"]} {data[s]["immatriculationVehicule"]}
+					</b><br />
+					<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
+					<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
+					<b>{labels["driver"]} {data[s]["driver"]["family"] + " " + data[s]["driver"]["given"]}</b><br />
+					</div>;
 			}
 			else if(data[s]["address"] != undefined && data[s]["address"] != ""){ // sinistre habitation
 				content = <div>
-				{labels["home_concerns"]} <br />
-				<b>{labels["sinistre_address"]} {data[s]["address"]["street"]} {data[s]["address"]["postCode"]} {data[s]["address"]["city"]}
-				</b><br />
-				<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
-				<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
-				</div>;
+					{labels["home_concerns"]} <br />
+					<b>{labels["sinistre_address"]} {data[s]["address"]["street"]} {data[s]["address"]["postCode"]} {data[s]["address"]["city"]}
+					</b><br />
+					<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
+					<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
+					</div>;
 			}
 			else{ // Sinistre bateau, non remonté dans les flux donc non traité
 				

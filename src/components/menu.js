@@ -15,17 +15,17 @@ const Menu = React.createClass({
 		  header = this.generateHeader();
     }
   	var menu = this.generateMenu();
-      return (
-        <div className={menuParams[0].class} id={menuParams[0].id}>
-          <h2 className={menuHeader[0].titleClass}> {menuHeader[0].title} </h2>
-          <div className='menu-container'>
-            <div className='inner'>
-              {header}
-              		<ul>{menu}</ul>
-              	</div>
-          	</div>
-        </div>
-      );
+    return (
+      <div className={menuParams[0].class} id={menuParams[0].id}>
+        <h2 className={menuHeader[0].titleClass}> {menuHeader[0].title} </h2>
+        <div className='menu-container'>
+          <div className='inner'>
+            {header}
+            		<ul>{menu}</ul>
+            	</div>
+        	</div>
+      </div>
+    );
   },
 
   /**

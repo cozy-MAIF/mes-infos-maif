@@ -6,11 +6,9 @@
 
 import React from 'react';
 
-
 const Contracts = React.createClass({
 
 	render: function(){
-
 		var data = this.props.data;
 		var labels = this.props.labels;
 
@@ -21,7 +19,6 @@ const Contracts = React.createClass({
 		var praxis_solutions = new Array();
 		var ome = new Array();
 		var pj = new Array();
-
 		var nautis = new Array();
 
 		//sort different contracts into arrays
@@ -59,6 +56,7 @@ const Contracts = React.createClass({
 			}
 		});
 
+			//display all contracts
 			return (
 			<span>
 					{this.generateAutoMoto(vam, pacs)}
@@ -97,7 +95,7 @@ const Contracts = React.createClass({
 					if(vam[i]["objects"] != undefined){
 						vamAmount += vam[i]["objects"]["vehicule"] == undefined ? 0 : vam[i]["objects"]["vehicule"].length;
 						boatAmount += vam[i]["objects"]["bateau"] == undefined ? 0 : vam[i]["objects"]["bateau"].length;
-						//VEHICULES
+						//VEHICLES
 							if(vam[i]["objects"]["vehicule"] != undefined){
 								return (vam[i]["objects"]["vehicule"]).map(function(k){
 									var myVehicle = that.getVehicleByPlate(k["immatriculationVehicule"]);
@@ -181,6 +179,7 @@ const Contracts = React.createClass({
 								return <span>{immat}{details}{cotisation}</span>;
 							});
 						}
+						//BOATS
 						if(vam[i]["objects"]["bateau"] != undefined){
 								return (vam[i]["objects"]["bateau"]).map(function(k){
 									var immat = <div className="row">
@@ -275,9 +274,7 @@ const Contracts = React.createClass({
 				</div>
 			}
 
-			/*
-			PACS
-			*/
+			//PACS
 			if(pacs.length != 0){
 				pacsContent = Object.keys(pacs).map(function(i){
 				var pacsPrice = pacs[i]["montantTarifTtc"];
@@ -325,6 +322,7 @@ const Contracts = React.createClass({
 	                </span>
 			}
 
+			//separator between VAM and PACS in webpage
 			var autoMotoSeparator = <span>
 										<div className="row">
 	                        				<div className="large-5 medium-8 small-6 columns">
@@ -340,7 +338,7 @@ const Contracts = React.createClass({
 	                    				</div>
 	                    				<hr className="no-margin" />
 	                    			</span>;
-
+	        //display all VAM/PACS contracts together
 			var autoMoto = <div id="ancreContratAutoMoto" className="box-alpha unfold">
 							<div className="box-container blue">
 									<div className="box-h1">
@@ -352,14 +350,14 @@ const Contracts = React.createClass({
 			            			<div className="accordion-content" style={{display: 'block'}}>
 						            	{vamPendant}
 						            	{vamContent}
-						            	{(vam.length != 0) ? autoMotoSeparator : ""}
+						            	{vam.length != 0 && pacs.length != 0 ? autoMotoSeparator : ""}
 						            	{pacsPendant}
 						            	{pacsContent}
 			            			</div>
 								</div>
 							</div>;
 		}
-		else{
+		else{ //if there is no VAM/PACS contracts, return empty var
 			autoMoto = "";
 		}
 
@@ -373,6 +371,7 @@ const Contracts = React.createClass({
 		if(raqvam.length != 0 || nautis.length != 0){
 			var data = this.props.data;
 			var labels = this.props.labels;
+
 			var raqvamPendant = "";
 			var raqvamContent = "";
 			var raqvamAmount = 0;
@@ -381,6 +380,7 @@ const Contracts = React.createClass({
 			var nautisContent = "";
 			var nautisAmount = 0;
 
+			//RAQVAM
 			if(raqvam.length != 0){
 				raqvamContent = Object.keys(raqvam).map(function(i){
 					var price = raqvam[i]["montantTarifTtc"];
@@ -449,9 +449,7 @@ const Contracts = React.createClass({
 								</div>;
 				
 			}
-			/**
-			* NAUTIS
-			*/
+			//NAUTIS
 			if(nautis.length != 0){
 				nautisContent = Object.keys(nautis).map(function(i){
 					var price_nautis = nautis[i]["montantTarifTtc"];
@@ -511,7 +509,7 @@ const Contracts = React.createClass({
 	            </div>
 			</div>;
 		}
-		else{
+		else{ //return empty var if there is no RAQVAM/NAUTIS
 			var habitation = "";
 		}
 
@@ -533,6 +531,8 @@ const Contracts = React.createClass({
 			var praxisSPendant = "";
 			var praxisSContent = "";
 			var praxisSPrice = "";
+
+			//PRAXIS
 			if(praxis.length != 0){
 
 				var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
@@ -566,6 +566,8 @@ const Contracts = React.createClass({
 	                    </div>;
 
 				}
+
+				//PRAXIS SOLUTIONS
 				if(praxis_solutions.length != 0){
 					var solutions_price = praxis_solutions[0]["montantTarifTtc"] != undefined ? praxis_solutions[0]["montantTarifTtc"] : "";
 
@@ -592,7 +594,7 @@ const Contracts = React.createClass({
 		                                {labels["price"]}
 		                            </div>
 		                            <div className="large-6 medium-6 small-6 columns enhance to-right">
-		                                {price} €
+		                                {solutions_price} €
 		                            </div>
 		                        </div>
 		                    </div>;
@@ -617,7 +619,7 @@ const Contracts = React.createClass({
 								</div>
 							</div>;
 		}
-		else{
+		else{ //return empty var if there is no PRAXIS contracts
 			var sante = "";
 		}
 
@@ -631,12 +633,12 @@ const Contracts = React.createClass({
 		if(pj.length != 0){
 			var data = this.props.data;
 			var labels = this.props.labels;
+
 			var pjPendant = "";
 			var pjContent = "";
 			var pjFormula = "";
 			var pjAmount = 0;
 			var pjPrice = "";
-
 			var protection = "";
 
 			var price = pj[0]["montantTarifTtc"] != undefined ? pj[0]["montantTarifTtc"] : "";
@@ -698,7 +700,7 @@ const Contracts = React.createClass({
 						</div>
 					</div>;
 		}
-		else{
+		else{ //return empty var if there is no pj contract
 			var protection = "";
 		}
 		return protection;
@@ -711,6 +713,7 @@ const Contracts = React.createClass({
 		if(ome.length != 0){
 			var data = this.props.data;
 			var labels = this.props.labels;
+
 			var omePendant = "";
 			var omeContent = "";
 			var omeFormula = "";
@@ -773,7 +776,7 @@ const Contracts = React.createClass({
 						</div>
 					</div>;
 		}
-		else{
+		else{ //return empty var if there is no OME contract
 			var multirisque = "";
 		}
 		return multirisque;

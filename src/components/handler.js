@@ -17,9 +17,6 @@ const showMetadata = true;
 const Handler = React.createClass({
 	render: function() {
 
-    var data = this.props.data;
-    var labels = this.props.labels;
-
     if(this.props.serverData == undefined || this.props.serverData["MesInfos"] == undefined){ // no or wrong data, show message and ask user to connect
       var noData = <div>
         <b>{this.errorHandler("hasToConnect")}</b>

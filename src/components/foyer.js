@@ -12,7 +12,8 @@ const Foyer = React.createClass({
 
 		var data = this.props.data;
 		var labels = this.props.labels;
-		var members = Object.keys(data["membres"]).map(function(k) {
+
+		var members = Object.keys(data["membres"]).map(function(k) { // for each members
         	var memberData = new Object();
         	var lastname = data["membres"][k]["name"]["family"] == undefined ? "" : data["membres"][k]["name"]["family"];
         	var firstname = data["membres"][k]["name"]["given"] == undefined ? "" : data["membres"][k]["name"]["given"];

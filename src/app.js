@@ -17,10 +17,10 @@ $(document).ready(function() {
     var lastImport = "";
     cozysdk.defineRequest('MaifUser', 'all', 'function(doc) { emit(doc.id, doc); }', function(){
         cozysdk.run('MaifUser', 'all', {}, function(err, maifusers) { //get all maifuser, undefined if not in database
-            if (err != null) { //an error will be shown in the IHM, even if not setted here
+            if (err != null) { //an error will be shown in the page, even if not setted here
             } else {
                 if(maifusers != undefined && Object.keys(maifusers).length !== 0){
-                    lastImport = maifusers[0].value.date == undefined ? "" : maifusers[0].value.date;
+                    lastImport = maifusers[0].value.date == undefined ? "" : maifusers[0].value.date; //get last import date
                     maifusers = maifusers[0].value.profile;
                 }
                 else{

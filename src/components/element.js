@@ -10,6 +10,10 @@ import Foyer from './foyer';
 import Infosperso from './infosperso';
 import Insuranceclaims from './insuranceclaims';
 
+/**
+* Element component
+* handle all react components
+*/
 const Element = React.createClass({
 
 	render: function(){
@@ -78,7 +82,7 @@ const Element = React.createClass({
 				default:
 				break;
 			}
-			if(data == undefined){
+			if(data == undefined){ //there is no data, display error message
 				content = <span><br /><br /><br /><br /><div className="box-message bottom"><span className="inline-title">{this.props.errorHandler("noData")}</span></div></span>;
 			}
 		}
