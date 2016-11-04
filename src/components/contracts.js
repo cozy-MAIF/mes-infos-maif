@@ -719,9 +719,33 @@ const Contracts = React.createClass({
 			var omeFormula = "";
 			var omeAmount = 0;
 			var omePrice = "";
+			var startDate = "";
 
 			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
-			var startDate = ome[0]["startDate"] != undefined ? ome[0]["startDate"] : "";
+			if(ome[0]["objects"] != undefined){
+				if(ome[0]["objects"]["startDate"] != undefined){
+					startDate = ome[0]["objects"]["startDate"];
+				}
+				else{
+					ome[0]["startDate"]
+				}
+			}
+
+			var beneficiaires = "";
+
+			if(ome[0]["objects"] != undefined){
+				if(ome[0]["objects"]["beneficiaire"] != undefined){
+					Object.keys(ome[0]["objects"]["beneficiaire"]).map(function(i){
+						var benef = ome[0]["objects"]["beneficiaire"][i];
+						if(benef["nom"] != undefined && benef["prenom"] != undefined){
+							if(i > 0){
+								beneficiaires += ", ";
+							}
+							beneficiaires += benef["nom"] + " " + benef["prenom"];
+						}
+					});
+				}
+			}
 
 			omePendant = <div className="row">
 								<div className="colomns large-12">
@@ -735,9 +759,10 @@ const Contracts = React.createClass({
 		                        <div className="row light-grey white-for-small border-bottom margin-bottom-10 section-padding-vertical">
 		                            <div className="columns large-5 medium-5 small-6">
 			                            <div className="line">
-			                                {/*Nom et prénom des bénéficiaires*/}
+			                                {labels["ome_beneficiares"]}
 			                            </div>
 			                                <div className="line enhance-master large-font">
+			                                {beneficiaires}
 			                                </div>
 			                            <div className="line show-for-small">&nbsp;</div>
 			                        </div>
