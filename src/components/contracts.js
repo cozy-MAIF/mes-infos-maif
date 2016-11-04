@@ -759,7 +759,7 @@ const Contracts = React.createClass({
 		                        <div className="row light-grey white-for-small border-bottom margin-bottom-10 section-padding-vertical">
 		                            <div className="columns large-5 medium-5 small-6">
 			                            <div className="line">
-			                                {labels["ome_beneficiares"]}
+			                                {labels["ome_beneficiaires"]}
 			                            </div>
 			                                <div className="line enhance-master large-font">
 			                                {beneficiaires}
