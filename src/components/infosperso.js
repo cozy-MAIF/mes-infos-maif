@@ -28,7 +28,7 @@ const Infosperso = React.createClass({
 							</div>
 							<div className='columns small-7'>
 								<div className='line enhance-master'>
-									{data["birthdate"]}
+									{this.toFrenchDate(data["birthdate"])}
 								</div>
 							</div>
 						</div>
@@ -135,6 +135,23 @@ const Infosperso = React.createClass({
 				</div>
 			</div>
 			);
+	},
+
+	toFrenchDate: function(enDate){
+		var frenchDate = "";
+		if(enDate != "" && enDate != undefined){
+			var date = new Date(enDate);
+			var month = (date.getMonth() + 1);
+			if(month <= 9){
+				month = "0" + month;
+			}
+			var day = date.getDate();
+			if(day <= 9){
+				day = "0" + day;
+			}
+			frenchDate = day + '/' + month + '/' + date.getFullYear();
+		}
+		return frenchDate;
 	}
 
 });

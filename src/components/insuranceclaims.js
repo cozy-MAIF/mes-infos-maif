@@ -53,7 +53,7 @@ const Insuranceclaims = React.createClass({
 								<div className="columns large-12 padding-bottom-10">
 									<div className="line line-bullet">
 										{labels["sinistre_number"]}{data[s]["referenceSinistre"]} <br/>
-										du {data[s]["horodatage"]}
+										du {that.toFrenchDate(data[s]["horodatage"])}
 									</div>
 								</div>
 							</div>
@@ -89,6 +89,23 @@ const Insuranceclaims = React.createClass({
 		else{
 			return undefined;
 		}
+	},
+
+	toFrenchDate: function(enDate){
+		var frenchDate = "";
+		if(enDate != "" && enDate != undefined){
+			var date = new Date(enDate);
+			var month = (date.getMonth() + 1);
+			if(month <= 9){
+				month = "0" + month;
+			}
+			var day = date.getDate();
+			if(day <= 9){
+				day = "0" + day;
+			}
+			frenchDate = day + '/' + month + '/' + date.getFullYear();
+		}
+		return frenchDate;
 	}
 });
 

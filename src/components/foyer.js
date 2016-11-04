@@ -13,12 +13,15 @@ const Foyer = React.createClass({
 		var data = this.props.data;
 		var labels = this.props.labels;
 
+		var that = this;
+
 		var members = Object.keys(data["membres"]).map(function(k) { // for each members
         	var memberData = new Object();
         	var lastname = data["membres"][k]["name"]["family"] == undefined ? "" : data["membres"][k]["name"]["family"];
         	var firstname = data["membres"][k]["name"]["given"] == undefined ? "" : data["membres"][k]["name"]["given"];
         	memberData.name = lastname + " " + firstname;
         	memberData.birth_date = data["membres"][k]["birthdate"] == undefined ? "" : data["membres"][k]["birthdate"];
+        	memberData.birth_date = that.toFrenchDate(memberData.birth_date);
         	memberData.email_member = data["membres"][k]["email"] == undefined ? "" : data["membres"][k]["email"];
         	// memberData.quality = data["membres"][k]["quality"] == undefined ? "" : data["membres"][k]["quality"];
         	memberData.mobile_phone_foyer = data["membres"][k]["telMobile"] == undefined ? "" : data["membres"][k]["telMobile"];
@@ -91,6 +94,23 @@ const Foyer = React.createClass({
 			</div>
 		</div>
 		);
+	},
+
+	toFrenchDate: function(enDate){
+		var frenchDate = "";
+		if(enDate != "" && enDate != undefined){
+			var date = new Date(enDate);
+			var month = (date.getMonth() + 1);
+			if(month <= 9){
+				month = "0" + month;
+			}
+			var day = date.getDate();
+			if(day <= 9){
+				day = "0" + day;
+			}
+			frenchDate = day + '/' + month + '/' + date.getFullYear();
+		}
+		return frenchDate;
 	}
 });
 

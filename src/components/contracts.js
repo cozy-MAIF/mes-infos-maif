@@ -78,6 +78,8 @@ const Contracts = React.createClass({
 			var vamPendant = "";
 			var pacsPendant = "";
 
+			var that = this;
+
 			var data = this.props.data;
 			var labels = this.props.labels;
 
@@ -372,6 +374,8 @@ const Contracts = React.createClass({
 			var data = this.props.data;
 			var labels = this.props.labels;
 
+			var that = this;
+
 			var raqvamPendant = "";
 			var raqvamContent = "";
 			var raqvamAmount = 0;
@@ -385,7 +389,7 @@ const Contracts = React.createClass({
 				raqvamContent = Object.keys(raqvam).map(function(i){
 					var price = raqvam[i]["montantTarifTtc"];
 					if(raqvam[i]["objects"]["lieu"] != undefined){
-						var startDate = raqvam[i]["objects"]["startDate"];
+						var startDate = that.toFrenchDate(raqvam[i]["objects"]["startDate"]);
 							raqvamAmount += raqvam[i]["objects"]["lieu"] == undefined ? 0 : raqvam[i]["objects"]["lieu"].length;
 							return (raqvam[i]["objects"]["lieu"]).map(function(i){
 								var address = i["address"]["street"];
@@ -454,7 +458,7 @@ const Contracts = React.createClass({
 				nautisContent = Object.keys(nautis).map(function(i){
 					var price_nautis = nautis[i]["montantTarifTtc"];
 					if(nautis[i]["objects"]["bateau"] != undefined){
-						var startDate = nautis[i]["objects"]["startDate"];
+						var startDate = that.toFrenchDate(nautis[i]["objects"]["startDate"]);
 							nautisAmount += nautis[i]["objects"]["bateau"] == undefined ? 0 : nautis[i]["objects"]["bateau"].length;
 							return (nautis[i]["objects"]["bateau"]).map(function(i){
 									var boat_nautis = <div className="section-margin">
@@ -724,10 +728,10 @@ const Contracts = React.createClass({
 			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
 			if(ome[0]["objects"] != undefined){
 				if(ome[0]["objects"]["startDate"] != undefined){
-					startDate = ome[0]["objects"]["startDate"];
+					startDate = this.toFrenchDate(ome[0]["objects"]["startDate"]);
 				}
 				else{
-					ome[0]["startDate"]
+					startDate = this.toFrenchDate(ome[0]["startDate"]);
 				}
 			}
 
@@ -821,6 +825,23 @@ const Contracts = React.createClass({
 		else{
 			return undefined;
 		}
+	},
+
+	toFrenchDate: function(enDate){
+		var frenchDate = "";
+		if(enDate != "" && enDate != undefined){
+			var date = new Date(enDate);
+			var month = (date.getMonth() + 1);
+			if(month <= 9){
+				month = "0" + month;
+			}
+			var day = date.getDate();
+			if(day <= 9){
+				day = "0" + day;
+			}
+			frenchDate = day + '/' + month + '/' + date.getFullYear();
+		}
+		return frenchDate;
 	}
 });
 
