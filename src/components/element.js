@@ -65,7 +65,7 @@ const Element = React.createClass({
 			switch(elementId){
 				case "contracts":
 					data = this.props.serverData["MesInfos"]["contract"];
-					content = <Contracts data={data} labels={labels} vehicles={this.props.serverData["MesInfos"]["vehicle"]}/>;
+					content = <Contracts data={data} labels={labels} vehicles={this.props.serverData["MesInfos"]["vehicle"]} home={this.props.serverData["MesInfos"]["home"]}/>;
 				break;
 				case "claims":
 					data = this.props.serverData["MesInfos"]["insuranceClaim"];

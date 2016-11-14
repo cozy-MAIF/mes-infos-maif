@@ -6,6 +6,11 @@
 
 import React from 'react';
 
+var souscriptionDateStyle = {
+					float:'right',
+					fontSize:16
+				};
+
 const Contracts = React.createClass({
 
 	render: function(){
@@ -90,11 +95,14 @@ const Contracts = React.createClass({
 				var vamAmount = 0;
 				var boatAmount = 0;
 				var that = this;
+				var contractStartDate = "";
 
 				vamContent = Object.keys(vam).map(function(i){
 					var price = vam[i]["montantTarifTtc"];
 					var formula = vam[i]["formuleBase"];
+					contractStartDate = vam[i]["startDate"] != undefined ? that.toFrenchDate(vam[i]["startDate"]) : "";
 					if(vam[i]["objects"] != undefined){
+						var objectStartDate = vam[i]["objects"]["startDate"] != undefined ? that.toFrenchDate(vam[i]["objects"]["startDate"]) : "";
 						vamAmount += vam[i]["objects"]["vehicule"] == undefined ? 0 : vam[i]["objects"]["vehicule"].length;
 						boatAmount += vam[i]["objects"]["bateau"] == undefined ? 0 : vam[i]["objects"]["bateau"].length;
 						//VEHICLES
@@ -102,9 +110,15 @@ const Contracts = React.createClass({
 								return (vam[i]["objects"]["vehicule"]).map(function(k){
 									var myVehicle = that.getVehicleByPlate(k["immatriculationVehicule"]);
 									var linkedDriver = "";
+									var coeff = "";
+									var coeffLine = "";
+									var date_circulation = "";
+									var circulationLine = "";
 									var vehicleName = "";
 									var usage = "";
 									if(myVehicle != undefined){
+										coeff = myVehicle["coeffVehicule"];
+										date_circulation = that.toFrenchDate(myVehicle["dateMiseEnCirculation"]);
 										if(myVehicle["conducteur"] != undefined){
 											linkedDriver = myVehicle["conducteur"]["identite"];
 										}
@@ -112,6 +126,43 @@ const Contracts = React.createClass({
 										var vehicleBrand = myVehicle["marque"] == undefined ? "" : myVehicle["marque"];
 										var vehicleModel = myVehicle["famille"] == undefined ? "" : myVehicle["famille"];
 										vehicleName = vehicleBrand + " " + vehicleModel;
+									}
+									if(coeff != "" && coeff != undefined){
+										coeff = "0," + coeff;
+										coeffLine = <div className="row">
+				                                    <div className="columns large-5 medium-8">
+				                                        <div className="line dotted">
+				                                            <span className="dot-grey">
+				                                                {labels["bonus"]}
+				                                            </span>
+				                                        </div>
+				                                    </div>
+				                                    <div className="columns large-3 medium-4 small-3">
+				                                    	<div className="line enhance-master">
+				                                            <div className="line enhance-master">
+				                                                {coeff}
+				                                            </div>
+				                                        </div>
+				                                    </div>
+				                                </div>;
+									}
+									if(date_circulation != "" && date_circulation != undefined){
+										circulationLine = <div className="row">
+				                                    <div className="columns large-5 medium-8">
+				                                        <div className="line dotted">
+				                                            <span className="dot-grey">
+				                                                {labels["circulation_date"]}
+				                                            </span>
+				                                        </div>
+				                                    </div>
+				                                    <div className="columns large-3 medium-4 small-3">
+				                                    	<div className="line enhance-master">
+				                                            <div className="line enhance-master">
+				                                                {date_circulation}
+				                                            </div>
+				                                        </div>
+				                                    </div>
+				                                </div>;
 									}
 									var immat = <div className="row">
 										<div className="large-5 medium-4 columns">
@@ -130,12 +181,20 @@ const Contracts = React.createClass({
                             			</div>
                             			<div className="section-margin">
                                 			<div className="row">
-                                    			<div className="large-5 medium-4 columns">
+                                    			<div className="large-3 medium-4 columns">
                                         			<div className="line">
                                             			{formula != undefined ? labels["formula"] : ""}
                                         			</div>
                                         			<div className="line enhance large-font">          
                                                 		{formula}        
+                                        			</div>
+                                    			</div>
+                                    			<div className="large-3 medium-4 columns">
+                                        			<div className="line">
+                                        				{objectStartDate != "" ? labels["effect_date"] : ""}
+                                        			</div>
+                                        			<div className="line enhance large-font">
+                                            			{objectStartDate}
                                         			</div>
                                     			</div>
                                     			<div className="large-3 medium-4 columns">
@@ -159,6 +218,8 @@ const Contracts = React.createClass({
 									var cotisation = <div className="section-margin">
 				                    	<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 				                            <div className="hide-for-small">
+				                            	{circulationLine}
+				                                {coeffLine}
 				                                <div className="row">
 				                                    <div className="columns large-5 medium-8">
 				                                        <div className="line dotted">
@@ -271,6 +332,7 @@ const Contracts = React.createClass({
 						<div className="box-h2">
 							{labels["vam_insurance"]}
 							<span className="vecAmount"> {vamAmount} {(vamAmount) > 1 ? labels["vehicles"] : labels["vehicle"]} {boatPendant} </span>
+							{contractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {contractStartDate}</span> : "" }
 						</div>
 					</div>
 				</div>
@@ -278,9 +340,11 @@ const Contracts = React.createClass({
 
 			//PACS
 			if(pacs.length != 0){
+				var pacsContractStartDate = "";
 				pacsContent = Object.keys(pacs).map(function(i){
-				var pacsPrice = pacs[i]["montantTarifTtc"];
-				var cotisation = <div className="section-margin">
+					pacsContractStartDate = pacs[i]["startDate"] != undefined ? that.toFrenchDate(pacs[i]["startDate"]) : "";
+					var pacsPrice = pacs[i]["montantTarifTtc"];
+					var cotisation = <div className="section-margin">
 		                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 		                                <div className="hide-for-small">
 		                                    <div className="row">
@@ -311,6 +375,7 @@ const Contracts = React.createClass({
 						<div className="colomns large-12">
 							<div className="box-h2">
 								{labels["pacs_insurance"]}
+								{pacsContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {pacsContractStartDate}</span> : "" }
 							</div>
 						</div>
 					</div>
@@ -386,15 +451,51 @@ const Contracts = React.createClass({
 
 			//RAQVAM
 			if(raqvam.length != 0){
+				var raqvamContractStartDate = "";
 				raqvamContent = Object.keys(raqvam).map(function(i){
+					raqvamContractStartDate = raqvam[i]["startDate"] != undefined ? that.toFrenchDate(raqvam[i]["startDate"]) : "";
 					var price = raqvam[i]["montantTarifTtc"];
+					var formuleBase = raqvam[i]["formuleBase"] != undefined ? raqvam[i]["formuleBase"] : "";
 					if(raqvam[i]["objects"]["lieu"] != undefined){
 						var startDate = that.toFrenchDate(raqvam[i]["objects"]["startDate"]);
 							raqvamAmount += raqvam[i]["objects"]["lieu"] == undefined ? 0 : raqvam[i]["objects"]["lieu"].length;
 							return (raqvam[i]["objects"]["lieu"]).map(function(i){
-								var address = i["address"]["street"];
-								var cp = i["address"]["postCode"];
-								var city = i["address"]["city"];
+								var address = i["address"]["street"] != undefined ? i["address"]["street"] : "";
+								var cp = i["address"]["postCode"] != undefined ? i["address"]["postCode"] : "";
+								var city = i["address"]["city"] != undefined ? i["address"]["city"] : "";
+
+								var globalAddress = "";
+
+								if(address != "")
+									globalAddress += address;
+								if(cp != "")
+									globalAddress += ", " + cp;
+								if(city != "")
+									globalAddress += ", " + city;
+
+								var natureLieu = "";
+								var piecesLieu = "";
+								var situationLieu = "";
+
+								var globalLieu = "";
+
+								var patrimoineMobilier = "";
+
+								var monLieu = that.getHomeByAddress(address, cp);
+
+								if(monLieu != undefined){
+									if(monLieu["natureLieu"] != undefined)
+										natureLieu = " - votre " + monLieu["natureLieu"];
+									if(monLieu["nombrePieces"] != undefined)
+										piecesLieu = " - " + monLieu["nombrePieces"];
+									if(monLieu["situationJuridiqueLieu"] != undefined)
+										situationLieu = " - " + monLieu["situationJuridiqueLieu"];
+									if(monLieu["patrimoineMobilier"] != undefined)
+										patrimoineMobilier = monLieu["patrimoineMobilier"];
+
+									globalLieu = natureLieu + piecesLieu + situationLieu;
+								}
+
 								var placeHeader = <div className="row">
 										<div className="columns large-12 medium-6 small-12 padding-bottom-10">
 		                                    <div className="box-h3 colorize">                                      
@@ -405,39 +506,52 @@ const Contracts = React.createClass({
 									var place = <div className="row">
 			                                <div className="columns large-12 margin-bottom">
 			                                    <div className="columns">                                     
-			                                            <div className="line enhance-master">                                               
+			                                            {/*<div className="line enhance-master">                                               
 			                                                {labels["insurance_from_date"]} {startDate} {labels["for_your_risks"]}
-			                                            </div>
+			                                            </div>*/}
 			                                        
 			                                        <div className="line large-font">                                            
-			                                            {address}, {cp}, {city}            
+			                                            {globalAddress} {globalLieu}
 			                                        </div>
 			                                    </div>
 			                                </div>
 			                            </div>;
-								var cotisation = <div className="section-margin">
-						                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
-						                                <div className="hide-for-small">
-						                                    <div className="row">
-						                                        <div className="columns large-5 medium-8">
-						                                            <div className="line dotted">
-						                                                <span className="dot-grey">
-						                                                    {labels["price"]}
-						                                                </span>
-						                                            </div>
-						                                        </div>
-						                                        <div className="columns large-3 medium-4 small-3">
-						                                            <div className="line enhance-master">
-						                                                    <div className="line enhance-master">
-						                                                        {price} €
-						                                                     </div>
-						                                           </div>
-						                                        </div>
-						                                    </div>
-						                              	</div>
-						                            </div>
-						                        </div>;
-						        return <span>{placeHeader}{place}{cotisation}</span>;
+
+			                    var placeDetails =<div className="section-margin hide-for-small">
+			                                <div className="row light-grey border-bottom margin-bottom-10 section-padding-vertical">
+			                                    <div className="medium-3 small-9 columns">
+			                                        <div className="line">
+			                                            {formuleBase != "" ? labels["formula"] : ""}
+			                                        </div>
+			                                        <div className="line enhance-master large-font">
+			                                            {formuleBase}
+			                                        </div>
+			                                    </div>
+			                                    <div className="medium-5 small-3 columns no-padding">
+			                                        <div className="line">
+			                                        	{patrimoineMobilier != "" ? labels["guaranteed_testimony"] : ""}
+			                                        </div>
+			                                            <div className="line enhance-master large-font">
+			                                                {patrimoineMobilier}
+			                                            </div>
+			                                        
+			                                    </div>
+			                                </div>
+			                            </div>;
+
+								var cotisation = <div className="row large-font">
+			                        <div className="large-4 medium-5 small-8 columns">
+			                            <div className="line dotted">
+			                                <span className="dot-white">{labels["price"]}</span>
+			                            </div>
+			                        </div>
+			                        <div className="large-8 medium-4 small-4 columns">
+			                            <div className="line enhance-master to-right">
+			                                {price} €
+			                            </div>
+			                        </div>
+			                    </div>;
+						        return <span>{placeHeader}{place}{placeDetails}{cotisation}</span>;
 
 							});
 					}
@@ -448,6 +562,7 @@ const Contracts = React.createClass({
 										<div className="box-h2">
 											{labels["raqvam_insurance"]}
 											<span className="vecAmount"> {raqvamAmount} {(raqvamAmount) > 1 ? labels["places"] : labels["place"]}</span>
+											{raqvamContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {raqvamContractStartDate}</span> : "" }
 										</div>
 									</div>
 								</div>;
@@ -455,7 +570,9 @@ const Contracts = React.createClass({
 			}
 			//NAUTIS
 			if(nautis.length != 0){
+				var nautisContractStartDate = "";
 				nautisContent = Object.keys(nautis).map(function(i){
+					nautisContractStartDate = nautis[i]["startDate"] != undefined ? that.toFrenchDate(nautis[i]["startDate"]) : "";
 					var price_nautis = nautis[i]["montantTarifTtc"];
 					if(nautis[i]["objects"]["bateau"] != undefined){
 						var startDate = that.toFrenchDate(nautis[i]["objects"]["startDate"]);
@@ -489,6 +606,7 @@ const Contracts = React.createClass({
 										<div className="box-h2">
 											{labels["nautis_insurance"]}
 											<span className="vecAmount"> {labels["navigation_de_plaisance"]}</span>
+											{nautisContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {nautisContractStartDate}</span> : "" }
 										</div>
 									</div>
 								</div>;
@@ -538,13 +656,14 @@ const Contracts = React.createClass({
 
 			//PRAXIS
 			if(praxis.length != 0){
-
+				var praxisContractStartDate = praxis[0]["startDate"] != undefined ? this.toFrenchDate(praxis[0]["startDate"]) : "";
 				var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
 
 				praxisPendant = <div className="row">
 									<div className="colomns large-12">
 										<div className="box-h2">
 											{labels["praxis_insurance"]}
+											{praxisContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {praxisContractStartDate}</span> : "" }
 										</div>
 									</div>
 								</div>;
@@ -573,12 +692,14 @@ const Contracts = React.createClass({
 
 				//PRAXIS SOLUTIONS
 				if(praxis_solutions.length != 0){
+					var praxisSContractStartDate = praxis_solutions[0]["startDate"] != undefined ? this.toFrenchDate(praxis_solutions[0]["startDate"]) : "";
 					var solutions_price = praxis_solutions[0]["montantTarifTtc"] != undefined ? praxis_solutions[0]["montantTarifTtc"] : "";
 
 					praxisSPendant = <div className="row">
 										<div className="colomns large-12">
 											<div className="box-h2">
 												{labels["praxis_solutions_insurance"]}
+												{praxisSContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {praxisSContractStartDate}</span> : "" }
 											</div>
 										</div>
 									</div>;
@@ -646,11 +767,13 @@ const Contracts = React.createClass({
 			var protection = "";
 
 			var price = pj[0]["montantTarifTtc"] != undefined ? pj[0]["montantTarifTtc"] : "";
+			var pjContractStartDate = pj[0]["startDate"] != undefined ? this.toFrenchDate(pj[0]["startDate"]) : "";
 
 			pjPendant = <div className="row">
 								<div className="colomns large-12">
 									<div className="box-h2">
 										{labels["protection_juridique_insurance"]}
+		                                {pjContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {pjContractStartDate}</span> : "" }
 									</div>
 								</div>
 							</div>;
@@ -726,6 +849,7 @@ const Contracts = React.createClass({
 			var startDate = "";
 
 			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
+			var omeContractStartDate = ome[0]["startDate"] != undefined ? this.toFrenchDate(ome[0]["startDate"]) : "";
 			if(ome[0]["objects"] != undefined){
 				if(ome[0]["objects"]["startDate"] != undefined){
 					startDate = this.toFrenchDate(ome[0]["objects"]["startDate"]);
@@ -755,6 +879,7 @@ const Contracts = React.createClass({
 								<div className="colomns large-12">
 									<div className="box-h2">
 										{labels["protection_multirisque"]}
+										{omeContractStartDate != "" ? <span style={souscriptionDateStyle}>{labels["souscription_date"]} {omeContractStartDate}</span> : "" }
 									</div>
 								</div>
 							</div>;
@@ -825,6 +950,20 @@ const Contracts = React.createClass({
 		else{
 			return undefined;
 		}
+	},
+
+	getHomeByAddress: function(street, cp){
+		var myHome = undefined;
+		if(this.props.home != undefined && street != undefined && street != "" && cp != undefined && cp != ""){
+			for (var i = this.props.home.length - 1; i >= 0; i--) {
+				if(this.props.home[i]["address"] != undefined && this.props.home[i]["address"] != ""){
+					if(this.props.home[i]["address"]["street"] == street && this.props.home[i]["address"]["postCode"] == cp){
+						myHome = this.props.home[i];
+					}
+				}
+			}
+		}
+		return myHome;
 	},
 
 	toFrenchDate: function(enDate){

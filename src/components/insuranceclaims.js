@@ -15,7 +15,8 @@ const Insuranceclaims = React.createClass({
 		var data = this.props.data;
 		var labels = this.props.labels;
 		var vehicleName = "";
-		
+		var data = this.sortByDate(data);
+
 		var sinistre = Object.keys(data).map(function(s) { //for each insuranceClaims
 			var content = "";
 			if (data[s]["immatriculationVehicule"] != undefined && data[s]["immatriculationVehicule"] != ""){ //sinistre véhicule
@@ -31,7 +32,6 @@ const Insuranceclaims = React.createClass({
 					{labels["plate"]} {data[s]["immatriculationVehicule"]}
 					</b><br />
 					<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
-					<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
 					<b>{labels["driver"]} {data[s]["driver"]["family"] + " " + data[s]["driver"]["given"]}</b><br />
 					</div>;
 			}
@@ -41,11 +41,15 @@ const Insuranceclaims = React.createClass({
 					<b>{labels["sinistre_address"]} {data[s]["address"]["street"]} {data[s]["address"]["postCode"]} {data[s]["address"]["city"]}
 					</b><br />
 					<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
-					<b>{labels["libelleTypeLieuSurvenance"]} {data[s]["libelleTypeLieuSurvenance"]}</b><br />
 					</div>;
 			}
-			else{ // Sinistre bateau, non remonté dans les flux donc non traité
-				
+			else{
+				if(data[s]["lieuSurvenance"] != "" && data[s]["lieuSurvenance"] != undefined){
+					content = <div>
+						<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
+						{labels["pending_filling"]}
+						</div>;
+				}
 			}
 			return 	(
 						<div id="ancreSinistre" className={'box-sin unfold' + (s == 0 ? '' : ' short')}>
@@ -95,6 +99,7 @@ const Insuranceclaims = React.createClass({
 		var frenchDate = "";
 		if(enDate != "" && enDate != undefined){
 			var date = new Date(enDate);
+			// console.log(date.getTime());
 			var month = (date.getMonth() + 1);
 			if(month <= 9){
 				month = "0" + month;
@@ -106,6 +111,15 @@ const Insuranceclaims = React.createClass({
 			frenchDate = day + '/' + month + '/' + date.getFullYear();
 		}
 		return frenchDate;
+	},
+
+	sortByDate: function(data){
+		data.sort(function(a, b) {
+			a = new Date(a.horodatage).getTime();
+			b = new Date(b.horodatage).getTime();
+	      return a>b ? -1 : a<b ? 1 : 0;
+	  });
+		return data;	
 	}
 });
 
