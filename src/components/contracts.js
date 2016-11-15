@@ -539,18 +539,23 @@ const Contracts = React.createClass({
 			                                </div>
 			                            </div>;
 
-								var cotisation = <div className="row large-font">
-			                        <div className="large-4 medium-5 small-8 columns">
-			                            <div className="line dotted">
-			                                <span className="dot-white">{labels["price"]}</span>
-			                            </div>
-			                        </div>
-			                        <div className="large-8 medium-4 small-4 columns">
-			                            <div className="line enhance-master to-right">
-			                                {price} €
-			                            </div>
-			                        </div>
-			                    </div>;
+								var cotisation = "";
+
+								if(price != undefined && price != ""){
+									cotisation = <div className="row large-font">
+				                        <div className="large-4 medium-5 small-8 columns">
+				                            <div className="line dotted">
+				                                <span className="dot-white">{labels["price"]}</span>
+				                            </div>
+				                        </div>
+				                        <div className="large-8 medium-4 small-4 columns">
+				                            <div className="line enhance-master to-right">
+				                                {price} €
+				                            </div>
+				                        </div>
+				                    </div>;
+								}
+
 						        return <span>{placeHeader}{place}{placeDetails}{cotisation}</span>;
 
 							});
