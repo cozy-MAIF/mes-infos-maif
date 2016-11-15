@@ -12,6 +12,26 @@ const Infosperso = React.createClass({
 		var data = this.props.data;
 		var labels = this.props.labels;
 
+		var address = "";
+
+		if(this.props.address != undefined && this.props.address != ""){
+			var residence = this.props.address["residence"];
+	        var street = this.props.address["street"];
+	        var cp = this.props.address["postCode"];
+	        var city = this.props.address["city"];
+
+	        if(residence != undefined && residence != "")
+	       		address += residence;
+	       	if(residence != undefined && residence != "" && street != undefined && street != "")
+	       		address += ", ";
+	        if(street != undefined && street != "")
+	       		address += street;
+	        if(cp != undefined && cp != "")
+	        	address += ", " + cp;
+	        if(city != undefined && city != "")
+	        	address += ", " + city;
+		}
+
 				return (
 			<div className='box-alpha'>
 				<div id='divinfoPerso'>
@@ -54,7 +74,7 @@ const Infosperso = React.createClass({
 							</div>
 							<div className='columns small-7'>
 								<div className='line enhance-master'>
-									{this.props.address}
+									{address}
 								</div>
 							</div>
 						</div>

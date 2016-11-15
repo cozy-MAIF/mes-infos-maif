@@ -58,7 +58,7 @@ const Element = React.createClass({
 		if(this.props.serverData["MesInfos"] != undefined){
 			if(this.props.serverData["MesInfos"]["foyer"] != undefined){
 				if(this.props.serverData["MesInfos"]["foyer"]["address"] != undefined && this.props.serverData["MesInfos"]["foyer"]["address"] != ""){
-					address = this.props.serverData["MesInfos"]["foyer"]["address"]["street"] + ", " + this.props.serverData["MesInfos"]["foyer"]["address"]["postCode"] + ", "  + this.props.serverData["MesInfos"]["foyer"]["address"]["city"];
+					address = this.props.serverData["MesInfos"]["foyer"]["address"];
 				}
 			}
 			//define data in different cases and pass in parameter

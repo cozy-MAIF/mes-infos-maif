@@ -15,6 +15,25 @@ const Foyer = React.createClass({
 
 		var that = this;
 
+        var address = "";
+        if(data["address"] != undefined && data["address"] != ""){
+	        var residence = data["address"]["residence"];
+	        var street = data["address"]["street"];
+	        var cp = data["address"]["postCode"];
+	        var city = data["address"]["city"];
+
+	        if(residence != undefined && residence != "")
+	       		address += residence;
+	       	if(residence != undefined && residence != "" && street != undefined && street != "")
+	       		address += ", ";
+	        if(street != undefined && street != "")
+	       		address += street;
+	        if(cp != undefined && cp != "")
+	        	address += ", " + cp;
+	        if(city != undefined && city != "")
+	        	address += ", " + city;
+        }
+
 		var members = Object.keys(data["membres"]).map(function(k) { // for each members
         	var memberData = new Object();
         	var lastname = data["membres"][k]["name"]["family"] == undefined ? "" : data["membres"][k]["name"]["family"];
@@ -29,6 +48,7 @@ const Foyer = React.createClass({
         	memberData.pro_phone_foyer = data["membres"][k]["telPro"] == undefined ? "" : data["membres"][k]["telPro"];
         	memberData.fax_phone_foyer = data["membres"][k]["telFax"] == undefined ? "" : data["membres"][k]["telFax"];
         	memberData.job = data["membres"][k]["profession"] == undefined ? "" : data["membres"][k]["profession"];
+
 
         	var member_table = Object.keys(memberData).map(function(i) {
         		return <div className="foyerMember"> {labels[i]} <b>{memberData[i]}</b> </div>;
@@ -84,7 +104,7 @@ const Foyer = React.createClass({
 	                </div>                
 	                <div className="columns small-7">
 	                    <div className="line enhance-master">
-	                        {data["address"]["street"]}, {data["address"]["postCode"]}, {data["address"]["city"]}
+	                     	{address}
 	                    </div>
 	                </div>
 	            </div>
