@@ -128,7 +128,7 @@ const Contracts = React.createClass({
 										vehicleName = vehicleBrand + " " + vehicleModel;
 									}
 									if(coeff != "" && coeff != undefined){
-										coeff = "0," + coeff;
+										coeff = coeff/100;
 										coeffLine = <div className="row">
 				                                    <div className="columns large-5 medium-8">
 				                                        <div className="line dotted">
