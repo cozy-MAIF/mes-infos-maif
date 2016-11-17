@@ -457,7 +457,9 @@ const Contracts = React.createClass({
 					var price = raqvam[i]["montantTarifTtc"];
 					var formuleBase = raqvam[i]["formuleBase"] != undefined ? raqvam[i]["formuleBase"] : "";
 					if(raqvam[i]["objects"]["lieu"] != undefined){
-						var startDate = that.toFrenchDate(raqvam[i]["objects"]["startDate"]);
+							var startDate = "";
+							if(raqvam[i]["objects"]["startDate"] != undefined && raqvam[i]["objects"]["startDate"] != "")
+								startDate = that.toFrenchDate(raqvam[i]["objects"]["startDate"]);
 							raqvamAmount += raqvam[i]["objects"]["lieu"] == undefined ? 0 : raqvam[i]["objects"]["lieu"].length;
 							return (raqvam[i]["objects"]["lieu"]).map(function(i){
 								var address = i["address"]["street"] != undefined ? i["address"]["street"] : "";
@@ -525,6 +527,14 @@ const Contracts = React.createClass({
 			                                        </div>
 			                                        <div className="line enhance-master large-font">
 			                                            {formuleBase}
+			                                        </div>
+			                                    </div>
+			                                    <div className="medium-3 small-9 columns">
+			                                        <div className="line">
+			                                            {startDate != "" ? labels["effect_date"] : ""}
+			                                        </div>
+			                                        <div className="line enhance-master large-font">
+			                                            {startDate}
 			                                        </div>
 			                                    </div>
 			                                    <div className="medium-5 small-3 columns no-padding">
