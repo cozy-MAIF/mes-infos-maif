@@ -109,7 +109,7 @@ const Contracts = React.createClass({
 						//VEHICLES
 							if(vam[i]["objects"]["vehicule"] != undefined){
 								return (vam[i]["objects"]["vehicule"]).map(function(k){
-									var myVehicle = that.getVehicleByPlate(k["immatriculationVehicule"]);
+									var myVehicle = that.getVehicleByPlateAndRepertoire(k["immatriculationVehicule"],k["numeroRepertoireVehicule"]);
 									var linkedDriver = "";
 									var coeff = "";
 									var coeffLine = "";
@@ -964,6 +964,22 @@ const Contracts = React.createClass({
 		if(this.props.vehicles != undefined){
 			for (var i = this.props.vehicles.length - 1; i >= 0; i--) {
 				if(this.props.vehicles[i].immatriculationVehicule == plate){
+					return this.props.vehicles[i];
+				}
+			}
+		}
+		else{
+			return undefined;
+		}
+	},
+
+	/**
+	* get vehicle by plate number and repertoire number
+	*/
+	getVehicleByPlateAndRepertoire: function(plate,repertoire){
+		if(this.props.vehicles != undefined){
+			for (var i = this.props.vehicles.length - 1; i >= 0; i--) {
+				if(this.props.vehicles[i].immatriculationVehicule == plate && this.props.vehicles[i].numeroRepertoireVehicule == repertoire){
 					return this.props.vehicles[i];
 				}
 			}
