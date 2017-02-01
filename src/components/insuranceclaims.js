@@ -57,7 +57,7 @@ const Insuranceclaims = React.createClass({
 			else if(data[s]["lieuSurvenance"] != "" && data[s]["lieuSurvenance"] != undefined){
 					content = <div>
 						<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
-						{labels["pending_filling"]}
+						Etat : {labels["pending_filling"]}
 						</div>;
 			}
 
