@@ -22,6 +22,8 @@ $(document).ready(function() {
                 if(maifusers != undefined && Object.keys(maifusers).length !== 0){
                     lastImport = maifusers[0].value.date == undefined ? "" : maifusers[0].value.date; //get last import date
                     maifusers = maifusers[0].value.profile;
+                    //console.log(maifusers);
+                    //console.log(maifusers[0]);
                 }
                 else{
                     maifusers = undefined;

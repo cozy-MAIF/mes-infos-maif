@@ -91,7 +91,9 @@ var appLabels = [
     "foyer_infos": "Informations foyer",
     "foyer_name": "Nom du foyer : ",
     "foyer_address": "Adresse du foyer : ",
-    "ome_beneficiaires": "Nom et prénom des bénéficiaires"
+    "ome_beneficiaires": "Nom et prénom des bénéficiaires",
+    "libelleSituationEvenement": "Etat : ",
+    "circonstances": "Circonstances : "
   }
 ];
 

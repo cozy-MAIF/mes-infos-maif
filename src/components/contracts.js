@@ -76,7 +76,7 @@ const Contracts = React.createClass({
 	*generate automoto part
 	*/
 	generateAutoMoto: function(vam, pacs){
-					
+
 		if(vam.length != 0 || pacs.length != 0){
 			var vamContent = "";
 			var pacsContent = "";
@@ -99,6 +99,7 @@ const Contracts = React.createClass({
 
 				vamContent = Object.keys(vam).map(function(i){
 					var price = vam[i]["montantTarifTtc"];
+					price = price.toFixed(2);
 					var formula = vam[i]["formuleBase"];
 					contractStartDate = vam[i]["startDate"] != undefined ? that.toFrenchDate(vam[i]["startDate"]) : "";
 					if(vam[i]["objects"] != undefined){
@@ -108,7 +109,7 @@ const Contracts = React.createClass({
 						//VEHICLES
 							if(vam[i]["objects"]["vehicule"] != undefined){
 								return (vam[i]["objects"]["vehicule"]).map(function(k){
-									var myVehicle = that.getVehicleByPlate(k["immatriculationVehicule"]);
+									var myVehicle = that.getVehicleByPlateAndRepertoire(k["immatriculationVehicule"],k["numeroRepertoireVehicule"]);
 									var linkedDriver = "";
 									var coeff = "";
 									var coeffLine = "";
@@ -128,7 +129,7 @@ const Contracts = React.createClass({
 										vehicleName = vehicleBrand + " " + vehicleModel;
 									}
 									if(coeff != "" && coeff != undefined){
-										coeff = coeff/100;
+										coeff = (coeff/100).toFixed(2);
 										coeffLine = <div className="row">
 				                                    <div className="columns large-5 medium-8">
 				                                        <div className="line dotted">
@@ -167,7 +168,7 @@ const Contracts = React.createClass({
 									var immat = <div className="row">
 										<div className="large-5 medium-4 columns">
 											<div id="ancrecontratAutoMoto0" className="box-h3 colorize">
-												{vehicleName}										
+												{vehicleName}
 											</div>
 										</div>
 									</div>;
@@ -176,7 +177,7 @@ const Contracts = React.createClass({
                                 			<div className="columns large-12">
 		                                        <div className="columns large-font">
         		                                    {k["immatriculationVehicule"]}
-                		                        </div>                  
+                		                        </div>
                         			        </div>
                             			</div>
                             			<div className="section-margin">
@@ -185,8 +186,8 @@ const Contracts = React.createClass({
                                         			<div className="line">
                                             			{formula != undefined ? labels["formula"] : ""}
                                         			</div>
-                                        			<div className="line enhance large-font">          
-                                                		{formula}        
+                                        			<div className="line enhance large-font">
+                                                		{formula}
                                         			</div>
                                     			</div>
                                     			<div className="large-3 medium-4 columns">
@@ -211,7 +212,7 @@ const Contracts = React.createClass({
 		                                                    {usage}
 		                                                        </div>
 		                                                    </div>
-		                                            </div>                                     
+		                                            </div>
                                 			</div>
                             			</div>
                         			</div>;
@@ -257,7 +258,7 @@ const Contracts = React.createClass({
                                 			<div className="columns large-12">
 		                                        <div className="columns large-font">
         		                                    {k["immatriculationVehicule"]}
-                		                        </div>                  
+                		                        </div>
                         			        </div>
                             			</div>*/}
                             			<div className="section-margin">
@@ -266,8 +267,8 @@ const Contracts = React.createClass({
                                         			<div className="line">
                                             			{formula != undefined ? labels["formula"] : ""}
                                         			</div>
-                                        			<div className="line enhance large-font">          
-                                                		{formula}        
+                                        			<div className="line enhance large-font">
+                                                		{formula}
                                         			</div>
                                     			</div>
                                     			{/*<div className="large-3 medium-4 columns">
@@ -283,7 +284,7 @@ const Contracts = React.createClass({
 		                                                    {usage}
 		                                                        </div>
 		                                                    </div>
-		                                            </div> */}                      
+		                                            </div> */}
                                 			</div>
                             			</div>
                         			</div>;
@@ -344,6 +345,7 @@ const Contracts = React.createClass({
 				pacsContent = Object.keys(pacs).map(function(i){
 					pacsContractStartDate = pacs[i]["startDate"] != undefined ? that.toFrenchDate(pacs[i]["startDate"]) : "";
 					var pacsPrice = pacs[i]["montantTarifTtc"];
+					pacsPrice = pacsPrice.toFixed(2);
 					var cotisation = <div className="section-margin">
 		                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 		                                <div className="hide-for-small">
@@ -455,6 +457,7 @@ const Contracts = React.createClass({
 				raqvamContent = Object.keys(raqvam).map(function(i){
 					raqvamContractStartDate = raqvam[i]["startDate"] != undefined ? that.toFrenchDate(raqvam[i]["startDate"]) : "";
 					var price = raqvam[i]["montantTarifTtc"];
+					price = price.toFixed(2);
 					var formuleBase = raqvam[i]["formuleBase"] != undefined ? raqvam[i]["formuleBase"] : "";
 					if(raqvam[i]["objects"]["lieu"] != undefined){
 							var startDate = "";
@@ -500,19 +503,19 @@ const Contracts = React.createClass({
 
 								var placeHeader = <div className="row">
 										<div className="columns large-12 medium-6 small-12 padding-bottom-10">
-		                                    <div className="box-h3 colorize">                                      
+		                                    <div className="box-h3 colorize">
 		                                        {city}
 		                                    </div>
 		                                </div>
 									</div>;
 									var place = <div className="row">
 			                                <div className="columns large-12 margin-bottom">
-			                                    <div className="columns">                                     
-			                                            {/*<div className="line enhance-master">                                               
+			                                    <div className="columns">
+			                                            {/*<div className="line enhance-master">
 			                                                {labels["insurance_from_date"]} {startDate} {labels["for_your_risks"]}
 			                                            </div>*/}
-			                                        
-			                                        <div className="line large-font">                                            
+
+			                                        <div className="line large-font">
 			                                            {globalAddress} {globalLieu}
 			                                        </div>
 			                                    </div>
@@ -544,7 +547,7 @@ const Contracts = React.createClass({
 			                                            <div className="line enhance-master large-font">
 			                                                {patrimoineMobilier}
 			                                            </div>
-			                                        
+
 			                                    </div>
 			                                </div>
 			                            </div>;
@@ -571,7 +574,7 @@ const Contracts = React.createClass({
 							});
 					}
 				});
-				
+
 				raqvamPendant = <div className="row">
 									<div className="colomns large-12">
 										<div className="box-h2">
@@ -581,7 +584,7 @@ const Contracts = React.createClass({
 										</div>
 									</div>
 								</div>;
-				
+
 			}
 			//NAUTIS
 			if(nautis.length != 0){
@@ -589,6 +592,7 @@ const Contracts = React.createClass({
 				nautisContent = Object.keys(nautis).map(function(i){
 					nautisContractStartDate = nautis[i]["startDate"] != undefined ? that.toFrenchDate(nautis[i]["startDate"]) : "";
 					var price_nautis = nautis[i]["montantTarifTtc"];
+					price_nautis = price_nautis.toFixed(2);
 					if(nautis[i]["objects"]["bateau"] != undefined){
 						var startDate = that.toFrenchDate(nautis[i]["objects"]["startDate"]);
 							nautisAmount += nautis[i]["objects"]["bateau"] == undefined ? 0 : nautis[i]["objects"]["bateau"].length;
@@ -615,7 +619,7 @@ const Contracts = React.createClass({
 							});
 					}
 				});
-				
+
 				nautisPendant = <div className="row">
 									<div className="colomns large-12">
 										<div className="box-h2">
@@ -673,7 +677,7 @@ const Contracts = React.createClass({
 			if(praxis.length != 0){
 				var praxisContractStartDate = praxis[0]["startDate"] != undefined ? this.toFrenchDate(praxis[0]["startDate"]) : "";
 				var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
-
+				price = price.toFixed(2);
 				praxisPendant = <div className="row">
 									<div className="colomns large-12">
 										<div className="box-h2">
@@ -692,7 +696,7 @@ const Contracts = React.createClass({
 			                    </div>;
 
 	            praxisPrice =
-	            		<div className="section-margin"> 
+	            		<div className="section-margin">
 	            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 	                            <div className="large-6 medium-6 small-6 columns">
 	                                {labels["price"]}
@@ -709,7 +713,7 @@ const Contracts = React.createClass({
 				if(praxis_solutions.length != 0){
 					var praxisSContractStartDate = praxis_solutions[0]["startDate"] != undefined ? this.toFrenchDate(praxis_solutions[0]["startDate"]) : "";
 					var solutions_price = praxis_solutions[0]["montantTarifTtc"] != undefined ? praxis_solutions[0]["montantTarifTtc"] : "";
-
+					solutions_price = solutions_price.toFixed(2);
 					praxisSPendant = <div className="row">
 										<div className="colomns large-12">
 											<div className="box-h2">
@@ -728,7 +732,7 @@ const Contracts = React.createClass({
 				                    </div>;
 
 		            praxisSPrice =
-		            		<div className="section-margin"> 
+		            		<div className="section-margin">
 		            			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 		                            <div className="large-6 medium-6 small-6 columns">
 		                                {labels["price"]}
@@ -782,6 +786,7 @@ const Contracts = React.createClass({
 			var protection = "";
 
 			var price = pj[0]["montantTarifTtc"] != undefined ? pj[0]["montantTarifTtc"] : "";
+			price = price.toFixed(2);
 			var pjContractStartDate = pj[0]["startDate"] != undefined ? this.toFrenchDate(pj[0]["startDate"]) : "";
 
 			pjPendant = <div className="row">
@@ -814,7 +819,7 @@ const Contracts = React.createClass({
                 </div>;
 
             pjPrice =
-            		<div className="section-margin"> 
+            		<div className="section-margin">
             			<div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
                             <div className="large-6 medium-6 small-6 columns">
                                 {labels["price"]}
@@ -864,6 +869,7 @@ const Contracts = React.createClass({
 			var startDate = "";
 
 			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
+			price = price.toFixed(2);
 			var omeContractStartDate = ome[0]["startDate"] != undefined ? this.toFrenchDate(ome[0]["startDate"]) : "";
 			if(ome[0]["objects"] != undefined){
 				if(ome[0]["objects"]["startDate"] != undefined){
@@ -958,6 +964,22 @@ const Contracts = React.createClass({
 		if(this.props.vehicles != undefined){
 			for (var i = this.props.vehicles.length - 1; i >= 0; i--) {
 				if(this.props.vehicles[i].immatriculationVehicule == plate){
+					return this.props.vehicles[i];
+				}
+			}
+		}
+		else{
+			return undefined;
+		}
+	},
+
+	/**
+	* get vehicle by plate number and repertoire number
+	*/
+	getVehicleByPlateAndRepertoire: function(plate,repertoire){
+		if(this.props.vehicles != undefined){
+			for (var i = this.props.vehicles.length - 1; i >= 0; i--) {
+				if(this.props.vehicles[i].immatriculationVehicule == plate && this.props.vehicles[i].numeroRepertoireVehicule == repertoire){
 					return this.props.vehicles[i];
 				}
 			}
