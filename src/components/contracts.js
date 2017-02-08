@@ -99,7 +99,9 @@ const Contracts = React.createClass({
 
 				vamContent = Object.keys(vam).map(function(i){
 					var price = vam[i]["montantTarifTtc"];
-					price = price.toFixed(2);
+					if(price){
+						price = price.toFixed(2);
+					}
 					var formula = vam[i]["formuleBase"];
 					contractStartDate = vam[i]["startDate"] != undefined ? that.toFrenchDate(vam[i]["startDate"]) : "";
 					if(vam[i]["objects"] != undefined){
@@ -345,7 +347,9 @@ const Contracts = React.createClass({
 				pacsContent = Object.keys(pacs).map(function(i){
 					pacsContractStartDate = pacs[i]["startDate"] != undefined ? that.toFrenchDate(pacs[i]["startDate"]) : "";
 					var pacsPrice = pacs[i]["montantTarifTtc"];
-					pacsPrice = pacsPrice.toFixed(2);
+					if(pacsPrice){
+						pacsPrice = pacsPrice.toFixed(2);
+					}
 					var cotisation = <div className="section-margin">
 		                            <div className="row light-grey border-bottom margin-bottom section-padding-vertical large-font">
 		                                <div className="hide-for-small">
@@ -457,7 +461,9 @@ const Contracts = React.createClass({
 				raqvamContent = Object.keys(raqvam).map(function(i){
 					raqvamContractStartDate = raqvam[i]["startDate"] != undefined ? that.toFrenchDate(raqvam[i]["startDate"]) : "";
 					var price = raqvam[i]["montantTarifTtc"];
-					price = price.toFixed(2);
+					if(price){
+						price = price.toFixed(2);
+					}
 					var formuleBase = raqvam[i]["formuleBase"] != undefined ? raqvam[i]["formuleBase"] : "";
 					if(raqvam[i]["objects"]["lieu"] != undefined){
 							var startDate = "";
@@ -592,7 +598,9 @@ const Contracts = React.createClass({
 				nautisContent = Object.keys(nautis).map(function(i){
 					nautisContractStartDate = nautis[i]["startDate"] != undefined ? that.toFrenchDate(nautis[i]["startDate"]) : "";
 					var price_nautis = nautis[i]["montantTarifTtc"];
-					price_nautis = price_nautis.toFixed(2);
+					if(price_nautis){
+						price_nautis = price_nautis.toFixed(2);
+					}
 					if(nautis[i]["objects"]["bateau"] != undefined){
 						var startDate = that.toFrenchDate(nautis[i]["objects"]["startDate"]);
 							nautisAmount += nautis[i]["objects"]["bateau"] == undefined ? 0 : nautis[i]["objects"]["bateau"].length;
@@ -677,7 +685,9 @@ const Contracts = React.createClass({
 			if(praxis.length != 0){
 				var praxisContractStartDate = praxis[0]["startDate"] != undefined ? this.toFrenchDate(praxis[0]["startDate"]) : "";
 				var price = praxis[0]["montantTarifTtc"] != undefined ? praxis[0]["montantTarifTtc"] : "";
-				price = price.toFixed(2);
+				if(price){
+					price = price.toFixed(2);
+				}
 				praxisPendant = <div className="row">
 									<div className="colomns large-12">
 										<div className="box-h2">
@@ -713,7 +723,9 @@ const Contracts = React.createClass({
 				if(praxis_solutions.length != 0){
 					var praxisSContractStartDate = praxis_solutions[0]["startDate"] != undefined ? this.toFrenchDate(praxis_solutions[0]["startDate"]) : "";
 					var solutions_price = praxis_solutions[0]["montantTarifTtc"] != undefined ? praxis_solutions[0]["montantTarifTtc"] : "";
-					solutions_price = solutions_price.toFixed(2);
+					if(solutions_price){
+						solutions_price = solutions_price.toFixed(2);
+					}
 					praxisSPendant = <div className="row">
 										<div className="colomns large-12">
 											<div className="box-h2">
@@ -786,7 +798,9 @@ const Contracts = React.createClass({
 			var protection = "";
 
 			var price = pj[0]["montantTarifTtc"] != undefined ? pj[0]["montantTarifTtc"] : "";
-			price = price.toFixed(2);
+			if(price){
+				price = price.toFixed(2);
+			}
 			var pjContractStartDate = pj[0]["startDate"] != undefined ? this.toFrenchDate(pj[0]["startDate"]) : "";
 
 			pjPendant = <div className="row">
@@ -869,7 +883,9 @@ const Contracts = React.createClass({
 			var startDate = "";
 
 			var price = ome[0]["montantTarifTtc"] != undefined ? ome[0]["montantTarifTtc"] : "";
-			price = price.toFixed(2);
+			if(price){
+				price = price.toFixed(2);
+			}
 			var omeContractStartDate = ome[0]["startDate"] != undefined ? this.toFrenchDate(ome[0]["startDate"]) : "";
 			if(ome[0]["objects"] != undefined){
 				if(ome[0]["objects"]["startDate"] != undefined){
