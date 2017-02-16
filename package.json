@@ -1,7 +1,7 @@
 {
   "name": "mes-infos-maif",
   "cozy-displayName": "Mes Infos MAIF",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Vos infos MAIF",
   "icon-path": "logo_maif.png",
   "main": "src/app.js",
