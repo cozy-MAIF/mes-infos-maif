@@ -66,12 +66,12 @@ const Insuranceclaims = React.createClass({
 					<b>{circonstances}</b><br />
 					</div>;
 			}
-			/*else if(data[s]["lieuSurvenance"] != "" && data[s]["lieuSurvenance"] != undefined){
+			else if(data[s]["lieuSurvenance"] == "" && data[s]["lieuSurvenance"] == undefined){
 					content = <div>
 						<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
 						Etat : {labels["pending_filling"]}
 						</div>;
-			}*/
+			}
 
 			return 	(
 						<div id="ancreSinistre" className={'box-sin unfold' + (s == 0 ? '' : ' short')}>
