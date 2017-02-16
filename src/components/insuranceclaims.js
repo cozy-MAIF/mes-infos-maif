@@ -47,19 +47,31 @@ const Insuranceclaims = React.createClass({
 					</div>;
 			}
 			else if(data[s]["address"] != undefined && data[s]["address"] != ""){ // sinistre habitation
+				//libelleSituationEvenement
+				var libelleSituationEvenement = "";
+				if(data[s]["libelleSituationEvenement"] != undefined && data[s]["libelleSituationEvenement"] != ""){
+					libelleSituationEvenement = labels["libelleSituationEvenement"] + data[s]["libelleSituationEvenement"]
+				}
+				//circonstances
+				var circonstances = "";
+				if(data[s]["circonstances"][0]["libelleCirconstanceReference"] != undefined && data[s]["circonstances"][0]["libelleCirconstanceReference"] != ""){
+					circonstances = labels["circonstances"] + data[s]["circonstances"][0]["libelleCirconstanceReference"];
+				}
 				content = <div>
 					{labels["home_concerns"]} <br />
 					<b>{labels["sinistre_address"]} {data[s]["address"]["street"]} {data[s]["address"]["postCode"]} {data[s]["address"]["city"]}
 					</b><br />
 					<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
+					<b>{libelleSituationEvenement}</b><br />
+					<b>{circonstances}</b><br />
 					</div>;
 			}
-			else if(data[s]["lieuSurvenance"] != "" && data[s]["lieuSurvenance"] != undefined){
+			/*else if(data[s]["lieuSurvenance"] != "" && data[s]["lieuSurvenance"] != undefined){
 					content = <div>
 						<b>{labels["lieuSurvenance"]} {data[s]["lieuSurvenance"]}</b><br />
 						Etat : {labels["pending_filling"]}
 						</div>;
-			}
+			}*/
 
 			return 	(
 						<div id="ancreSinistre" className={'box-sin unfold' + (s == 0 ? '' : ' short')}>

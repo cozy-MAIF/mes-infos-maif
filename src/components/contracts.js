@@ -121,7 +121,7 @@ const Contracts = React.createClass({
 									var usage = "";
 									if(myVehicle != undefined){
 										coeff = myVehicle["coeffVehicule"];
-										date_circulation = that.toFrenchDate(myVehicle["dateMiseEnCirculation"]);
+										date_circulation = that.toFrenchYearDate(myVehicle["dateMiseEnCirculation"]);
 										if(myVehicle["conducteur"] != undefined){
 											linkedDriver = myVehicle["conducteur"]["identite"];
 										}
@@ -1032,6 +1032,23 @@ const Contracts = React.createClass({
 				day = "0" + day;
 			}
 			frenchDate = day + '/' + month + '/' + date.getFullYear();
+		}
+		return frenchDate;
+	},
+
+	toFrenchYearDate: function(enDate){
+		var frenchDate = "";
+		if(enDate != "" && enDate != undefined){
+			var date = new Date(enDate);
+			var month = (date.getMonth() + 1);
+			if(month <= 9){
+				month = "0" + month;
+			}
+			var day = date.getDate();
+			if(day <= 9){
+				day = "0" + day;
+			}
+			frenchDate = date.getFullYear();
 		}
 		return frenchDate;
 	}
